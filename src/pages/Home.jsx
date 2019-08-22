@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import background from '../../assets/images/background-homepage.webp';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.webp';
 
 const Background = styled('div')`
   height: 100vh;
