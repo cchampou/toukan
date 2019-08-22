@@ -1,0 +1,15 @@
+version: '3'
+services:
+  production:
+    build: .
+    restart: always
+    labels:
+      - "traefik.frontend.rule=Host:toukancinemalyon.fr"
+      - "traefik.backend.port=3000"
+      - "traefik.enable=true"
+      - "traefik.docker.network=layko_layko_net"
+
+networks:
+  default:
+    external:
+      name: layko_layko_net
