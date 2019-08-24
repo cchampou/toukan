@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { useTranslation } from 'react-i18next';
 import background from '../../assets/images/background-homepage.webp';
 import logo from '../../assets/images/logo.webp';
 
@@ -22,6 +23,15 @@ const Logo = styled('img')`
   transform: translateY(-50%);
 `;
 
-const Home = () => <Background><Logo src={logo} alt="Logo Toukan" /></Background>;
+const Home = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Background>
+      <Logo src={logo} alt="Logo Toukan" />
+      {t('home')}
+    </Background>
+  );
+};
 
 export default Home;

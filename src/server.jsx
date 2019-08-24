@@ -2,15 +2,19 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import express from 'express';
 import compression from 'compression';
+import i18nextMiddleware from 'i18next-express-middleware';
+import i18n from './i18n';
 import { renderToString } from 'react-dom/server';
 import App from './App';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
+
 const server = express();
 server
   .disable('x-powered-by')
   .use(compression())
+  .use(i18nextMiddleware.handle(i18n))
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .get('/*', (req, res) => {
     const context = {};
