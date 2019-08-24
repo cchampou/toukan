@@ -18,6 +18,18 @@ steps:
     commands:
       - docker-compose up -d preview
 
+
+  - name: deploy production
+    image: docker/compose:1.24.1
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose up -d production
+    when:
+      branch:
+        - master
+
 volumes:
   - name: docker
     host:
