@@ -10,6 +10,14 @@ steps:
       - name: docker
         path: /var/run/docker.sock
 
+  - name: deploy preview
+    image: docker/compose:1.24.1
+    volumes:
+        - name: docker
+          path: /var/run/docker.sock
+    commands:
+      - docker-compose up -d preview
+
 volumes:
   - name: docker
     host:
