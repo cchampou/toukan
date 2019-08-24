@@ -1,7 +1,17 @@
 version: '3'
 services:
+  preview:
+    build: .
+    image: toukan:latest
+    restart: always
+    labels:
+      - "traefik.frontend.rule=Host:toukan.cchampou.me"
+      - "traefik.backend.port=3000"
+      - "traefik.enable=true"
+      - "traefik.docker.network=layko_layko_net"
   production:
     build: .
+    image: toukan:latest
     restart: always
     labels:
       - "traefik.frontend.rule=Host:toukancinemalyon.fr"
