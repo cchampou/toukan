@@ -6,3 +6,11 @@ steps:
     image: docker
     commands:
       - docker build . -t toukan:latest
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+
+volumes:
+  - name: docker
+    host:
+      path: /var/run/docker.sock
