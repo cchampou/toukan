@@ -7,7 +7,7 @@ const Background = styled('div')`
   height: 100vh;
   width: 100vw;
   // background-image: url("${background}");
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.yellow};
   background-position: center;
   background-size: cover;
   position: relative;
