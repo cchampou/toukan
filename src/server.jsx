@@ -3,8 +3,8 @@ import { StaticRouter } from 'react-router-dom';
 import express from 'express';
 import compression from 'compression';
 import i18nextMiddleware from 'i18next-express-middleware';
-import i18n from './i18n';
 import { renderToString } from 'react-dom/server';
+import i18n from './i18n';
 import App from './App';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
@@ -36,6 +36,7 @@ server
         <meta name="theme-color" content="#000">
         <meta name="Description" content="Toukan Cinema, production audiovisuelle sur Lyon.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lato|Libre+Baskerville&display=swap" rel="stylesheet">
         ${
   assets.client.css
     ? `<link rel="stylesheet" href="${assets.client.css}">`
