@@ -1,0 +1,13 @@
+{
+  "theme": {
+    "colors": {
+      "black": "#252525",
+      "white": "#F3F3F3",
+      "deepPurple": "#283952",
+      "purple": "#655B7B",
+      "pink": "#AA6A7F",
+      "red": "#D76D77",
+      "yellow": "#F6BE76"
+    }
+  }
+}

@@ -12,6 +12,7 @@
     "@emotion/core": "^10.0.16",
     "@emotion/styled": "^10.0.15",
     "compression": "^1.7.4",
+    "emotion-theming": "^10.0.14",
     "express": "^4.17.1",
     "i18next": "^17.0.12",
     "i18next-express-middleware": "^1.8.1",
