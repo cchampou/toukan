@@ -6,8 +6,7 @@ import logo from '../../assets/images/logo.webp';
 const Background = styled('div')`
   height: 100vh;
   width: 100vw;
-  // background-image: url("${background}");
-  background-color: ${({ theme }) => theme.colors.yellow};
+  background-image: url("${background}");
   background-position: center;
   background-size: cover;
   position: relative;
