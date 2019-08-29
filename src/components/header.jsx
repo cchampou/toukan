@@ -13,7 +13,7 @@ const HeaderWrapper = styled('nav')`
 `;
 
 const RightNav = styled('ul')`
-  margin: 0 2rem;
+  margin: 0 3rem;
   color: ${({ theme, scrolled }) => (scrolled ? theme.colors.white : theme.colors.black)};
   list-style: none;
   transition: all 0.5s ease-in-out;
@@ -27,6 +27,8 @@ const NavItems = styled('li')`
   line-height: 2rem;
   text-transform: uppercase;
   font-size: 0.8rem;
+  font-weight: light;
+  letter-spacing: 3px;
 `;
 
 const Header = ({ t }) => {
