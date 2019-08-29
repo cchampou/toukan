@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { withTranslation } from 'react-i18next';
 import background from '../../assets/images/background-homepage.webp';
 import logo from '../../assets/images/logo.webp';
-import { withTranslation } from 'react-i18next';
+import Header from '../components/header';
 
 const Background = styled('div')`
   height: 100vh;
@@ -11,6 +12,7 @@ const Background = styled('div')`
   background-position: center;
   background-size: cover;
   position: relative;
+  top: 0;
   z-index: -1;
 `;
 
@@ -38,6 +40,7 @@ const Description = styled('p')`
 
 const Home = ({ t }) => (
   <>
+    <Header />
     <Background><Logo src={logo} alt="Logo Toukan" /></Background>
     <Description>{t('description')}</Description>
   </>
