@@ -53,7 +53,7 @@ const Header = ({ t }) => {
   return (
     <>
       <HeaderWrapper scrolled={scrolled}>
-        <Logo src={logo} alt="Logo Toukan" scrolled={scrolled}/>
+        <Logo src={logo} alt="Logo Toukan" scrolled={scrolled} />
         <RightNav scrolled={scrolled}>
           <Link to="/about"><NavItems>{t('portfolio')}</NavItems></Link>
           <Link to="/about"><NavItems>{t('about')}</NavItems></Link>

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { withTranslation } from 'react-i18next';
-import background from '../../assets/images/background-building.webp';
+import background1 from '../../assets/images/background-building.webp';
+import background2 from '../../assets/images/background-homepage.webp';
 import logo from '../../assets/images/logo.webp';
 import Header from '../components/header';
+
+const backgrounds = [background1, background2];
 
 const Background = styled('div')`
   height: 100vh;
   width: 100vw;
-  background-image: url("${background}");
+  background-image: url("${({ theme }) => backgrounds[theme.index]}");
   background-position: center;
   background-size: cover;
   position: relative;
