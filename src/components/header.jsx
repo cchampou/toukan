@@ -14,7 +14,7 @@ const Header = () => {
   const [scrolled, setSrolled] = useState(false);
 
   if (process.env.BUILD_TARGET === 'client') {
-    window.addEventListener('scroll', (e) => {
+    window.addEventListener('scroll', () => {
       setSrolled(window.scrollY > 10);
     });
   }
