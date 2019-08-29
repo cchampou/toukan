@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { withTranslation } from 'react-i18next';
-import background from '../../assets/images/background-homepage.webp';
+import background from '../../assets/images/background-building.webp';
 import logo from '../../assets/images/logo.webp';
 import Header from '../components/header';
 
