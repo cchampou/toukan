@@ -10,6 +10,11 @@ const globalStyles = css`
     margin: 0;
     font-family: "Lato";
   }
+  
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
 `;
 
 const App = () => (
