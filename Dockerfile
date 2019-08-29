@@ -1,10 +1,12 @@
 FROM node:latest
 
+ARG PUBLIC_PATH
+ENV PUBLIC_PATH $PUBLIC_PATH
 COPY . .
 
 RUN yarn
-RUN PUBLIC_PATH=https://toukancinemalyon.fr/ yarn build
+RUN PUBLIC_PATH=$PUBLIC_PATH yarn build
 
 EXPOSE 3000
 
-CMD PUBLIC_PATH=https://toukancinemalyon.fr/ yarn start:prod
+CMD PUBLIC_PATH=$PUBLIC_PATH yarn start:prod

@@ -1,7 +1,10 @@
 version: '3'
 services:
   preview:
-    build: .
+    build:
+      context: .
+      args:
+        PUBLIC_DIR: "https://toukan.cchampou.me/"
     image: toukan:latest
     restart: always
     labels:
@@ -11,7 +14,10 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=layko_layko_net"
   production:
-    build: .
+    build:
+      context: .
+      args:
+        PUBLIC_DIR: "https://toukancinemalyon.fr/"
     image: toukan:latest
     restart: always
     labels:
