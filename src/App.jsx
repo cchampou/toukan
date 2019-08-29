@@ -8,6 +8,7 @@ import { theme } from '../config';
 const globalStyles = css`
   body {
     margin: 0;
+    font-family: "Lato";
   }
 `;
 

@@ -1,8 +1,10 @@
 {
   "theme": {
     "colors": {
-      "black": "#252525",
-      "white": "#F3F3F3",
+      "black": "#000000",
+      "darkGrey": "#252525",
+      "lightGrey": "#F3F3F3",
+      "white": "#FFFFFF",
       "deepPurple": "#283952",
       "purple": "#655B7B",
       "pink": "#AA6A7F",
