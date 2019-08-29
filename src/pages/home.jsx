@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { withTranslation } from 'react-i18next';
 import background from '../../assets/images/background-homepage.webp';
@@ -23,6 +23,8 @@ const Logo = styled('img')`
   top: 40vh;
   max-width: 70vw;
   position: relative;
+  opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
+  transition: all 0.5s ease-in-out;
   transform: translateY(-50%);
 `;
 
@@ -38,12 +40,21 @@ const Description = styled('p')`
   display: block;
 `;
 
-const Home = ({ t }) => (
-  <>
-    <Header />
-    <Background><Logo src={logo} alt="Logo Toukan" /></Background>
-    <Description>{t('description')}</Description>
-  </>
-);
+const Home = ({ t }) => {
+  const [scrolled, setSrolled] = useState(false);
+
+  if (process.env.BUILD_TARGET === 'client') {
+    window.addEventListener('scroll', () => {
+      setSrolled(window.scrollY > 10);
+    });
+  }
+  return (
+    <>
+      <Header />
+      <Background><Logo src={logo} alt="Logo Toukan" scrolled={scrolled} /></Background>
+      <Description>{t('description')}</Description>
+    </>
+  );
+}
 
 export default withTranslation()(Home);

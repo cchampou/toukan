@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import logo from '../../assets/images/logo.webp';
+
 const HeaderWrapper = styled('nav')`
   position: fixed;
   height: 4rem;
@@ -31,6 +33,15 @@ const NavItems = styled('li')`
   letter-spacing: 3px;
 `;
 
+const Logo = styled('img')`
+  position: absolute;
+  height: 4rem;
+  left: ${({ scrolled }) => (scrolled ? '3rem' : 0)};
+  top: ${({ scrolled }) => (scrolled ? '1rem' : 0)};
+  opacity: ${({ scrolled }) => (scrolled ? 1 : 0)};
+  transition: all 0.5s ease-in-out;
+`;
+
 const Header = ({ t }) => {
   const [scrolled, setSrolled] = useState(false);
 
@@ -42,6 +53,7 @@ const Header = ({ t }) => {
   return (
     <>
       <HeaderWrapper scrolled={scrolled}>
+        <Logo src={logo} alt="Logo Toukan" scrolled={scrolled}/>
         <RightNav scrolled={scrolled}>
           <Link to="/about"><NavItems>{t('portfolio')}</NavItems></Link>
           <Link to="/about"><NavItems>{t('about')}</NavItems></Link>
