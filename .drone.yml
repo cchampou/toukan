@@ -2,10 +2,10 @@ kind: pipeline
 name: default
 
 steps:
-  - name: build
-    image: docker
+  - name: build preview
+    image: docker/compose:1.24.1
     commands:
-      - docker build . -t toukan:latest
+      - docker-compose -p toukan build preview
     volumes:
       - name: docker
         path: /var/run/docker.sock
@@ -18,6 +18,13 @@ steps:
     commands:
       - docker-compose -p toukan up -d preview
 
+  - name: build production
+    image: docker/compose:1.24.1
+    commands:
+      - docker-compose -p toukan build production
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
 
   - name: deploy production
     image: docker/compose:1.24.1
