@@ -1,3 +1,14 @@
 {
-  "home": "Accueil"
+  "home": "Accueil",
+  "heading1": "Les Services que nous proposons",
+  "paragraph1": "<strong>Toukan Cinema</strong> est une boite de production en développement qui vous propose ces services d'<strong>Audiovisuel</strong>. Nous sommes situés sur <strong>Lyon</strong> et sommes tous <strong>diplômés</strong> dans nos domaines respectifs. Dans nos services, nous vous proposons:",
+  "service1": "La <strong>réalisation vidéo et photo</strong> de vos projets professionnels ou privés",
+  "service2": "Un <strong>montage irréprochable</strong> et une retouche personnalisée de vos vidéos ou photos",
+  "service3": "Des <strong>illustrations</strong> selon vos désirs pour refléter au mieux le message désiré",
+  "service4": "Un <strong>suivi détaillé</strong> de nos progrès durant la production",
+  "service5": "Une <strong>étude approfondie</strong> sur la durée, la qualité et l'envergure de votre projet ",
+  "portfolio": "Portfolio",
+  "about": "A propos",
+  "contact": "Contact",
+  "legal": "Mentions légales"
 }

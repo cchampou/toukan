@@ -1,3 +1,7 @@
 {
-  "home": "Home"
+  "home": "Home",
+  "portfolio": "Portfolio",
+  "about": "About",
+  "contact": "Contact",
+  "legal": "Legal notice"
 }

@@ -1,13 +1,32 @@
 {
-  "theme": {
-    "colors": {
-      "black": "#252525",
-      "white": "#F3F3F3",
-      "deepPurple": "#283952",
-      "purple": "#655B7B",
-      "pink": "#AA6A7F",
-      "red": "#D76D77",
-      "yellow": "#F6BE76"
+  "themes": [
+    {
+      "index": 0,
+      "colors": {
+        "black": "#000000",
+        "darkGrey": "#252525",
+        "lightGrey": "#F3F3F3",
+        "white": "#FFFFFF",
+        "deepPurple": "#283952",
+        "purple": "#655B7B",
+        "pink": "#AA6A7F",
+        "red": "#D76D77",
+        "yellow": "#F6BE76"
+      }
+    },
+    {
+      "index": 1,
+      "colors": {
+        "black": "#000000",
+        "darkGrey": "#252525",
+        "lightGrey": "#F3F3F3",
+        "white": "#FFFFFF",
+        "deepPurple": "#283952",
+        "purple": "#655B7B",
+        "pink": "#AA6A7F",
+        "red": "#D76D77",
+        "yellow": "#F6BE76"
+      }
     }
-  }
+  ]
 }
