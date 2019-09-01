@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { useTranslation, withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import Logo from '../atoms/logo'
 
 import background1 from '../../assets/images/background-building.webp';
 import background2 from '../../assets/images/background-homepage.webp';
 
-import logo from '../../assets/images/logo.webp';
 import Header from '../components/header';
-import Footer from '../components/footer';
 
 const backgrounds = [background1, background2];
 
@@ -23,9 +21,10 @@ const Background = styled('div')`
   z-index: -1;
 `;
 
-const Logo = styled('img')`
+const ExtendLogo = styled(Logo)`
   margin: auto;
   width: 400px;
+  height: auto;
   display: block;
   top: 40vh;
   max-width: 70vw;
@@ -48,20 +47,22 @@ const Description = styled('p')`
 `;
 
 const Home = () => {
-  const [scrolled, setSrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation();
 
-  if (process.env.BUILD_TARGET === 'client') {
-    window.addEventListener('scroll', () => {
-      setSrolled(window.scrollY > 10);
-    });
-  }
+  const toggle = () => setScrolled(window.scrollY > 10);
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggle);
+    return () => {
+      window.removeEventListener('scroll', toggle);
+    };
+  }, []);
   return (
     <>
       <Header />
-      <Background><Logo src={logo} alt="Logo Toukan" scrolled={scrolled} /></Background>
+      <Background><ExtendLogo scrolled={scrolled} /></Background>
       <Description>{t('description')}</Description>
-      <Footer />
     </>
   );
 };

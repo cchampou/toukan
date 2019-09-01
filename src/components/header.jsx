@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import logo from '../../assets/images/logo.webp';
+import PropTypes from 'prop-types';
+import Logo from '../atoms/logo';
 
 const HeaderWrapper = styled('nav')`
   position: fixed;
@@ -33,7 +34,7 @@ const NavItems = styled('li')`
   letter-spacing: 3px;
 `;
 
-const Logo = styled('img')`
+const ExtendLogo = styled(Logo)`
   position: absolute;
   height: 4rem;
   left: ${({ scrolled }) => (scrolled ? '3rem' : 0)};
@@ -42,26 +43,39 @@ const Logo = styled('img')`
   transition: all 0.5s ease-in-out;
 `;
 
-const Header = ({ t }) => {
-  const [scrolled, setSrolled] = useState(false);
+const Header = ({ noWrap }) => {
+  const [scrolled, setScrolled] = useState(noWrap);
+  const { t } = useTranslation();
 
-  if (process.env.BUILD_TARGET === 'client') {
-    window.addEventListener('scroll', () => {
-      setSrolled(window.scrollY > 10);
-    });
-  }
+  const toggle = () => setScrolled(window.scrollY > 10 || noWrap);
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggle);
+    return () => {
+      window.removeEventListener('scroll', toggle);
+    };
+  }, []);
+
   return (
     <>
       <HeaderWrapper scrolled={scrolled}>
-        <Logo src={logo} alt="Logo Toukan" scrolled={scrolled} />
+        <ExtendLogo scrolled={scrolled} />
         <RightNav scrolled={scrolled}>
-          <Link to="/about"><NavItems>{t('portfolio')}</NavItems></Link>
+          <Link to="/portfolio"><NavItems>{t('portfolio')}</NavItems></Link>
           <Link to="/about"><NavItems>{t('about')}</NavItems></Link>
-          <Link to="/about"><NavItems>{t('contact')}</NavItems></Link>
+          <Link to="/contact"><NavItems>{t('contact')}</NavItems></Link>
         </RightNav>
       </HeaderWrapper>
     </>
   );
 };
 
-export default withTranslation()(Header);
+Header.defaultProps = {
+  noWrap: false,
+};
+
+Header.propTypes = {
+  noWrap: PropTypes.bool,
+};
+
+export default Header;
