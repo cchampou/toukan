@@ -21,8 +21,9 @@ const globalStyles = css`
   }
   
   #root {
-    min-height: calc(100vh - 5rem);
+    min-height: calc(100vh - 10rem);
     position: relative;
+    padding-top: 5rem;
     padding-bottom: 5rem;
   }
   

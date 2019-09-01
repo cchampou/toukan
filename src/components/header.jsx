@@ -8,6 +8,7 @@ import Logo from '../atoms/logo';
 
 const HeaderWrapper = styled('nav')`
   position: fixed;
+  top: 0;
   height: 4rem;
   width: 100vw;
   background-color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : 'transparent')};

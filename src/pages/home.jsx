@@ -17,7 +17,7 @@ const Background = styled('div')`
   background-position: center;
   background-size: cover;
   position: relative;
-  top: 0;
+  margin-top: -5rem;
   z-index: -1;
 `;
 
