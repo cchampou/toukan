@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { withTranslation } from 'react-i18next';
+import { useTranslation, withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
+
 import background1 from '../../assets/images/background-building.webp';
 import background2 from '../../assets/images/background-homepage.webp';
+
 import logo from '../../assets/images/logo.webp';
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 const backgrounds = [background1, background2];
 
@@ -43,8 +47,9 @@ const Description = styled('p')`
   display: block;
 `;
 
-const Home = ({ t }) => {
+const Home = () => {
   const [scrolled, setSrolled] = useState(false);
+  const { t } = useTranslation();
 
   if (process.env.BUILD_TARGET === 'client') {
     window.addEventListener('scroll', () => {
@@ -56,8 +61,9 @@ const Home = ({ t }) => {
       <Header />
       <Background><Logo src={logo} alt="Logo Toukan" scrolled={scrolled} /></Background>
       <Description>{t('description')}</Description>
+      <Footer />
     </>
   );
-}
+};
 
-export default withTranslation()(Home);
+export default Home;
