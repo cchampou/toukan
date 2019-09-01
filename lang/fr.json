@@ -1,7 +1,14 @@
 {
   "home": "Accueil",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque tincidunt mi, non elementum justo commodo vel. Nulla at elit id felis finibus fringilla. Quisque porttitor justo eu erat tempor, ut consectetur felis vestibulum. Mauris pulvinar porta egestas. Vestibulum pretium felis justo, eu rutrum tortor dapibus vitae. Curabitur fermentum pellentesque turpis sit amet pellentesque. Cras sagittis eros vel libero luctus suscipit a in felis. Nullam facilisis tortor eget nulla suscipit tempus. Praesent tincidunt est ac aliquet auctor. Vestibulum interdum urna non nunc eleifend, a interdum augue dignissim. Morbi dapibus molestie ex ac porttitor. Curabitur placerat imperdiet elit, id tincidunt ex. Praesent cursus augue at dolor pulvinar, et congue turpis commodo. Nulla id mattis mauris. Phasellus maximus nec nulla id tempus.",
+  "heading1": "Les Services que nous proposons",
+  "paragraph1": "<strong>Toukan Cinema</strong> est une boite de production en développement qui vous propose ces services d'<strong>Audiovisuel</strong>. Nous sommes situés sur <strong>Lyon</strong> et sommes tous <strong>diplômés</strong> dans nos domaines respectifs. Dans nos services, nous vous proposons:",
+  "service1": "La <strong>réalisation vidéo et photo</strong> de vos projets professionnels ou privés",
+  "service2": "Un <strong>montage irréprochable</strong> et une retouche personnalisée de vos vidéos ou photos",
+  "service3": "Des <strong>illustrations</strong> selon vos désirs pour refléter au mieux le message désiré",
+  "service4": "Un <strong>suivi détaillé</strong> de nos progrès durant la production",
+  "service5": "Une <strong>étude approfondie</strong> sur la durée, la qualité et l'envergure de votre projet ",
   "portfolio": "Portfolio",
   "about": "A propos",
-  "contact": "Contact"
+  "contact": "Contact",
+  "legal": "Mentions légales"
 }

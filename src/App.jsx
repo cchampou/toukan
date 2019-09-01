@@ -8,6 +8,7 @@ import Footer from './components/footer';
 import About from './pages/about';
 import Contact from './pages/contact';
 import Portfolio from './pages/portfolio';
+import Legal from './pages/legal';
 
 const globalStyles = css`
   body {
@@ -36,6 +37,7 @@ const App = () => (
       <Route exact path="/about" component={About} />
       <Route exact path="/portfolio" component={Portfolio} />
       <Route exact path="/contact" component={Contact} />
+      <Route exact path="/legal" component={Legal} />
     </Switch>
     <Footer />
   </ThemeProvider>

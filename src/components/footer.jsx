@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from '@emotion/styled';
 import { Row, Item } from '../utils/flex';
 import Logo from '../atoms/logo';
+import { Link } from 'react-router-dom';
 
 const Background = styled(Row)`
   background-color: ${({ theme }) => theme.colors.black};
@@ -18,9 +19,9 @@ const Footer = () => {
 
   return (
     <Background>
-      <Item>{t('legal')}</Item>
+      <Item><Link to="/legal">{t('legal')}</Link></Item>
       <Item><Logo width="10rem" /></Item>
-      <Item>{t('legal')}</Item>
+      <Item><Link to="/contact">{t('contact')}</Link></Item>
     </Background>
   );
 };

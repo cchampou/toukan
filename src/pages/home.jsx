@@ -34,16 +34,27 @@ const ExtendLogo = styled(Logo)`
   transform: translateY(-50%);
 `;
 
-const Description = styled('p')`
-  font-family: "Libre Baskerville", serif;
+const Description = styled('div')`
   text-align: center;
   background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
-  font-style: italic;
-  font-weight: bold;
   margin: 0;
   padding: 3rem 10vw;
   display: block;
+  
+  p {
+    font-family: "Libre Baskerville", open-sans;
+    font-style: italic;
+  }
+`;
+
+const Services = styled('ul')`
+  list-style: number;
+  text-align: center;
+  
+  li {
+    line-height: 2rem;
+  }
 `;
 
 const Home = () => {
@@ -62,7 +73,17 @@ const Home = () => {
     <>
       <Header />
       <Background><ExtendLogo scrolled={scrolled} /></Background>
-      <Description>{t('description')}</Description>
+      <Description>
+        <h2>{t('heading1')}</h2>
+        <p dangerouslySetInnerHTML={{ __html: t('paragraph1') }} />
+        <Services>
+          <li dangerouslySetInnerHTML={{ __html: t('service1') }} />
+          <li dangerouslySetInnerHTML={{ __html: t('service2') }} />
+          <li dangerouslySetInnerHTML={{ __html: t('service3') }} />
+          <li dangerouslySetInnerHTML={{ __html: t('service4') }} />
+          <li dangerouslySetInnerHTML={{ __html: t('service5') }} />
+        </Services>
+      </Description>
     </>
   );
 };
