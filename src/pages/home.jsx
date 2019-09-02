@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
-import Logo from '../atoms/logo'
 
+import Logo from '../atoms/logo';
 import background1 from '../../assets/images/background-building.webp';
 import background2 from '../../assets/images/background-homepage.webp';
 import blackMagic from '../../assets/images/blackmagic.webp';
 import adobe from '../../assets/images/adobe.webp';
+import tickets from '../../assets/images/tickets.webp';
 
 import Header from '../components/header';
 import { Item, Row } from '../utils/flex';
@@ -60,12 +61,30 @@ const Services = styled('ul')`
   }
 `;
 
+const Inter = styled('h2')`
+  padding: 10rem 0;
+  background-image: url("${tickets}");
+  backgroud-color: black;
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: lighter;
+  font-size: 2rem;
+  text-align: center;
+  background-position: center;
+  background-attachment: fixed;
+  text-transform: uppercase;
+`;
+
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation();
 
   const toggle = () => setScrolled(window.scrollY > 10);
 
+  if (process.env.BUILD_TARGET === 'client') {
+    const ScrollReveal = require('scrollreveal').default;
+    ScrollReveal().reveal('#blackmagic', { delay: 200, reset: true, distance: '5rem', duration: 1000, origin: 'left' });
+    ScrollReveal().reveal('#adobe', { delay: 200, reset: true, distance: '5rem', duration: 1000, origin: 'right' });
+  }
   useEffect(() => {
     window.addEventListener('scroll', toggle);
     return () => {
@@ -77,7 +96,7 @@ const Home = () => {
       <Header color="white" />
       <Background><ExtendLogo scrolled={scrolled} /></Background>
       <Description>
-        <h2>{t('heading1')}</h2>
+        <h2>{t('heading1')}</h2><br /><br />
         <p dangerouslySetInnerHTML={{ __html: t('paragraph1') }} />
         <Services>
           <li dangerouslySetInnerHTML={{ __html: t('service1') }} />
@@ -87,9 +106,10 @@ const Home = () => {
           <li dangerouslySetInnerHTML={{ __html: t('service5') }} />
         </Services>
       </Description>
+      <Inter>{t('tools')}</Inter>
       <Row padded>
-        <Item>
-          <img src={blackMagic} alt="blackmagic" width="80%" />
+        <Item textAlign="center">
+          <img src={blackMagic} alt="blackmagic" id="blackmagic" width="80%" />
         </Item>
         <Item alignSelf="center">
           <h3 dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }}/>
@@ -99,8 +119,8 @@ const Home = () => {
         <Item alignSelf="center">
           <h3 dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }}/>
         </Item>
-        <Item>
-          <img src={adobe} alt="Adobe" width="80%" />
+        <Item textAlign="center">
+          <img src={adobe} alt="Adobe" id="adobe" width="80%" />
         </Item>
       </Row>
     </>

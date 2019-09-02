@@ -13,4 +13,5 @@ export const Column = styled('div')`
 export const Item = styled('div')`
   flex: 1;
   align-self: ${({ alignSelf }) => alignSelf};
+  text-align:  ${({ textAlign }) => textAlign};
 `;
