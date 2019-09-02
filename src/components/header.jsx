@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
+import { rgba } from 'polished';
+
 import Logo from '../atoms/logo';
 
 const HeaderWrapper = styled('nav')`
@@ -11,14 +12,14 @@ const HeaderWrapper = styled('nav')`
   top: 0;
   height: 4rem;
   width: 100vw;
-  background-color: ${({ theme, scrolled, color }) => (scrolled ? theme.colors[color] : 'transparent')};
+  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
+  background-color: ${({ theme, scrolled, color }) => (scrolled ? rgba(theme.colors[color], 0.9) : 'transparent')};
   box-shadow: 0 0 20px ${({ theme, scrolled }) => (scrolled && theme.darkMode ? theme.colors.black : 'transparent')};
   transition: all 0.5s ease-in-out;
 `;
 
 const RightNav = styled('ul')`
   margin: 0 3rem;
-  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
   list-style: none;
   transition: all 0.5s ease-in-out;
   display: flex;
@@ -35,6 +36,20 @@ const NavItems = styled('li')`
   letter-spacing: 3px;
 `;
 
+const Title = styled('h1')`
+  margin: 1rem 2rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: light;
+  letter-spacing: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: ${({ scrolled }) => (scrolled ? '20rem' : 0)};
+  transition: all 0.5s ease-in-out;
+`;
+
 const ExtendLogo = styled(Logo)`
   position: absolute;
   height: 4rem;
@@ -44,7 +59,7 @@ const ExtendLogo = styled(Logo)`
   transition: all 0.5s ease-in-out;
 `;
 
-const Header = ({ noWrap, color }) => {
+const Header = ({ noWrap, color, textLogo }) => {
   const [scrolled, setScrolled] = useState(noWrap);
   const { t } = useTranslation();
 
@@ -60,7 +75,7 @@ const Header = ({ noWrap, color }) => {
   return (
     <>
       <HeaderWrapper scrolled={scrolled} color={color}>
-        <ExtendLogo scrolled={scrolled} />
+        {textLogo ? <Link to="/"><Title scrolled={scrolled}>{t('title')}</Title></Link> : <ExtendLogo scrolled={scrolled} />}
         <RightNav scrolled={scrolled}>
           <Link to="/portfolio"><NavItems>{t('portfolio')}</NavItems></Link>
           <Link to="/about"><NavItems>{t('about')}</NavItems></Link>
@@ -74,11 +89,13 @@ const Header = ({ noWrap, color }) => {
 Header.defaultProps = {
   noWrap: false,
   color: 'black',
+  textLogo: true,
 };
 
 Header.propTypes = {
   noWrap: PropTypes.bool,
   color: PropTypes.string,
+  textLogo: PropTypes.bool,
 };
 
 export default Header;
