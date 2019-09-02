@@ -12,6 +12,7 @@ const Background = styled(Row)`
   position: absolute;
   width: 100vw;
   text-align: center;
+  padding: 2rem 0;
 `;
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
     <Background>
       <Item><Link to="/legal">{t('legal')}</Link></Item>
       <Item><Logo width="10rem" /></Item>
-      <Item><Link to="/contact">{t('contact')}</Link></Item>
+      <Item><Link to="/contact">{t('contact.title')}</Link></Item>
     </Background>
   );
 };

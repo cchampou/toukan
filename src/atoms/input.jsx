@@ -7,7 +7,8 @@ const Input = styled('input')`
   padding: 0.5rem 1.5rem;
   font-size: 1.1rem;
   font-weight: lighter;
-  border-radius: 3rem;
+  border-radius: ${({ theme }) => (theme.rounded ? '3rem' : '0')};
+  margin: 0.25rem;
   
   &:focus {
     border: solid 2px ${({ theme }) => theme.colors.purple};

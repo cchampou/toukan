@@ -64,7 +64,7 @@ const Header = ({ noWrap }) => {
         <RightNav scrolled={scrolled}>
           <Link to="/portfolio"><NavItems>{t('portfolio')}</NavItems></Link>
           <Link to="/about"><NavItems>{t('about')}</NavItems></Link>
-          <Link to="/contact"><NavItems>{t('contact')}</NavItems></Link>
+          <Link to="/contact"><NavItems>{t('contact.title')}</NavItems></Link>
         </RightNav>
       </HeaderWrapper>
     </>

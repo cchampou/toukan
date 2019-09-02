@@ -9,6 +9,14 @@
   "service5": "Une <strong>étude approfondie</strong> sur la durée, la qualité et l'envergure de votre projet ",
   "portfolio": "Portfolio",
   "about": "A propos",
-  "contact": "Contact",
-  "legal": "Mentions légales"
+  "legal": "Mentions légales",
+  "contact": {
+    "title": "Contact",
+    "project": "Parlez-nous de votre projet !",
+    "demand": "Votre demande",
+    "information": "Toukan Production Lyon",
+    "address1": "1, Avenue du Général Leclerc",
+    "address2": "69000 Lyon",
+    "phone": "+33 7 86 04 99 00"
+  }
 }

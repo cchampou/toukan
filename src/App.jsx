@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 import Home from './pages/home';
 import { themes } from '../config';
@@ -21,10 +19,10 @@ const globalStyles = css`
   }
   
   #root {
-    min-height: calc(100vh - 10rem);
+    min-height: calc(100vh - 12rem);
     position: relative;
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 7rem;
   }
   
   a {
