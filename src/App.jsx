@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 import Home from './pages/home';
 import { themes } from '../config';
@@ -18,12 +16,14 @@ const globalStyles = css`
     margin: 0;
     font-family: "Lato";
     min-height: 100vh;
+    letter-spacing: 0.1rem;
   }
   
   #root {
-    min-height: calc(100vh - 5rem);
+    min-height: calc(100vh - 12rem);
     position: relative;
-    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 7rem;
   }
   
   a {
@@ -51,7 +51,7 @@ const App = () => {
 
   // const toggleDarkMode = () => setDarkMode(!darkMode);
   return (
-    <ThemeProvider theme={darkModeHandler(themes[0], darkMode)}>
+    <ThemeProvider theme={darkModeHandler(themes[1], darkMode)}>
       {/* <DarkButton onClick={toggleDarkMode}><FontAwesomeIcon icon={faMoon} /></DarkButton> */}
       <Global styles={globalStyles} />
       <Switch>

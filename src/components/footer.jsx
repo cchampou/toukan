@@ -6,12 +6,13 @@ import Logo from '../atoms/logo';
 import { Link } from 'react-router-dom';
 
 const Background = styled(Row)`
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   bottom: 0;
   position: absolute;
   width: 100vw;
   text-align: center;
+  padding: 2rem 0;
 `;
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
     <Background>
       <Item><Link to="/legal">{t('legal')}</Link></Item>
       <Item><Logo width="10rem" /></Item>
-      <Item><Link to="/contact">{t('contact')}</Link></Item>
+      <Item><Link to="/contact">{t('contact.title')}</Link></Item>
     </Background>
   );
 };
