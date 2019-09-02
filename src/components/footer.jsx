@@ -6,7 +6,7 @@ import Logo from '../atoms/logo';
 import { Link } from 'react-router-dom';
 
 const Background = styled(Row)`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.black};
   bottom: 0;
   position: absolute;

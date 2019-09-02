@@ -16,6 +16,7 @@ const globalStyles = css`
     margin: 0;
     font-family: "Lato";
     min-height: 100vh;
+    letter-spacing: 0.1rem;
   }
   
   #root {
