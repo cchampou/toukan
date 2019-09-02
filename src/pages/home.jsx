@@ -5,8 +5,11 @@ import Logo from '../atoms/logo'
 
 import background1 from '../../assets/images/background-building.webp';
 import background2 from '../../assets/images/background-homepage.webp';
+import blackMagic from '../../assets/images/blackmagic.webp';
+import adobe from '../../assets/images/adobe.webp';
 
 import Header from '../components/header';
+import { Item, Row } from '../utils/flex';
 
 const backgrounds = [background1, background2];
 
@@ -84,6 +87,22 @@ const Home = () => {
           <li dangerouslySetInnerHTML={{ __html: t('service5') }} />
         </Services>
       </Description>
+      <Row padded>
+        <Item>
+          <img src={blackMagic} alt="blackmagic" width="80%" />
+        </Item>
+        <Item alignSelf="center">
+          <h3 dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }}/>
+        </Item>
+      </Row>
+      <Row padded>
+        <Item alignSelf="center">
+          <h3 dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }}/>
+        </Item>
+        <Item>
+          <img src={adobe} alt="Adobe" width="80%" />
+        </Item>
+      </Row>
     </>
   );
 };
