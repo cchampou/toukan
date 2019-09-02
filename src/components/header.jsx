@@ -11,14 +11,14 @@ const HeaderWrapper = styled('nav')`
   top: 0;
   height: 4rem;
   width: 100vw;
-  background-color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : 'transparent')};
-  box-shadow: 0 0 20px ${({ theme, scrolled }) => (scrolled ? theme.colors.black : 'transparent')};
+  background-color: ${({ theme, scrolled, color }) => (scrolled ? theme.colors[color] : 'transparent')};
+  box-shadow: 0 0 20px ${({ theme, scrolled }) => (scrolled && theme.darkMode ? theme.colors.black : 'transparent')};
   transition: all 0.5s ease-in-out;
 `;
 
 const RightNav = styled('ul')`
   margin: 0 3rem;
-  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.white : theme.colors.black)};
+  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
   list-style: none;
   transition: all 0.5s ease-in-out;
   display: flex;
@@ -44,7 +44,7 @@ const ExtendLogo = styled(Logo)`
   transition: all 0.5s ease-in-out;
 `;
 
-const Header = ({ noWrap }) => {
+const Header = ({ noWrap, color }) => {
   const [scrolled, setScrolled] = useState(noWrap);
   const { t } = useTranslation();
 
@@ -59,7 +59,7 @@ const Header = ({ noWrap }) => {
 
   return (
     <>
-      <HeaderWrapper scrolled={scrolled}>
+      <HeaderWrapper scrolled={scrolled} color={color}>
         <ExtendLogo scrolled={scrolled} />
         <RightNav scrolled={scrolled}>
           <Link to="/portfolio"><NavItems>{t('portfolio')}</NavItems></Link>
@@ -73,10 +73,12 @@ const Header = ({ noWrap }) => {
 
 Header.defaultProps = {
   noWrap: false,
+  color: 'black',
 };
 
 Header.propTypes = {
   noWrap: PropTypes.bool,
+  color: PropTypes.string,
 };
 
 export default Header;

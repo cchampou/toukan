@@ -36,8 +36,8 @@ const ExtendLogo = styled(Logo)`
 
 const Description = styled('div')`
   text-align: center;
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   margin: 0;
   padding: 3rem 10vw;
   display: block;
@@ -71,7 +71,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <Header />
+      <Header color="white" />
       <Background><ExtendLogo scrolled={scrolled} /></Background>
       <Description>
         <h2>{t('heading1')}</h2>

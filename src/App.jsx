@@ -50,7 +50,7 @@ const App = () => {
 
   // const toggleDarkMode = () => setDarkMode(!darkMode);
   return (
-    <ThemeProvider theme={darkModeHandler(themes[0], darkMode)}>
+    <ThemeProvider theme={darkModeHandler(themes[1], darkMode)}>
       {/* <DarkButton onClick={toggleDarkMode}><FontAwesomeIcon icon={faMoon} /></DarkButton> */}
       <Global styles={globalStyles} />
       <Switch>
