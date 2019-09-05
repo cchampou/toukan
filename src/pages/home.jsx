@@ -8,6 +8,9 @@ import background2 from '../../assets/images/background-homepage.webp';
 import blackMagic from '../../assets/images/blackmagic.webp';
 import adobe from '../../assets/images/adobe.webp';
 import tickets from '../../assets/images/tickets.webp';
+import block1 from '../../assets/images/dzedzfz.jpg';
+import block2 from '../../assets/images/sdefdfvrdfv.jpg';
+import block3 from '../../assets/images/sxqzedc.jpg';
 
 import Header from '../components/header';
 import { Item, Row } from '../utils/flex';
@@ -32,19 +35,20 @@ const ExtendLogo = styled(Logo)`
   top: 40vh;
   max-width: 90vw;
   position: relative;
-  opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
+  // opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
   transition: all 0.5s ease-in-out;
   transform: translateY(-50%);
 `;
 
 const Description = styled('div')`
   text-align: center;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: white;
+  // background: linear-gradient(transparent, white 10%);
   color: ${({ theme }) => theme.colors.black};
+  box-shadow: 0 10px 20px black;
   margin: 0;
   padding: 3rem 10vw;
   display: block;
-  
   p {
     font-style: italic;
   }
@@ -61,10 +65,10 @@ const Services = styled('ul')`
 
 const Inter = styled('h2')`
   margin: 0; 
-  padding: 10rem 0;
-  background-image: url("${tickets}");
+  padding: 5rem 0;
+  // background-image: url("${tickets}");
   backgroud-color: black;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   font-weight: lighter;
   font-size: 2rem;
   text-align: center;
@@ -73,7 +77,56 @@ const Inter = styled('h2')`
   text-transform: uppercase;
 `;
 
-const Block = styled('')`
+const Wrapper = styled('div')`
+  position: relative;
+  height: 40rem;
+`;
+
+const Block = styled('div')`
+  font-family: "marbre";
+  font-size: 1.8rem;
+  background-image: url("${block1}");
+  background-color: ${({ theme }) => theme.colors.black};
+  padding: 6rem 0;
+  background-size: 100vw auto;
+  background-position: center;
+  color: white;
+  text-align: center;
+  width: 33.33%;
+  float: left;
+  position: absolute;
+  transition: width 0.5s ease-in-out, z-index 0.5s step-end;
+  
+  &:hover {
+    transition: width 0.5s ease-in-out, z-index 0.5s step-start;
+    width: 100%;
+    left: 0;
+    z-index: 11;
+  }
+  
+  h3 {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+    margin: 0;
+  }
+  h4 {
+    font-family: "marbre bold";
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 8rem;
+  }
+`;
+
+const Block2 = styled(Block)`
+  background-image: url("${block2}");
+  left: 33.33%;
+`;
+
+const Block3 = styled(Block)`
+  background-image: url("${block3}");
+  left: 66.66%;
 `;
 
 const Home = () => {
@@ -97,7 +150,6 @@ const Home = () => {
     <>
       <Header color="white" />
       <Background><ExtendLogo scrolled={scrolled} /></Background>
-      <Inter>{t('tools')}</Inter>
       <Description>
         <h2>{t('heading1')}</h2><br /><br />
         <p dangerouslySetInnerHTML={{ __html: t('paragraph1') }} />
@@ -109,6 +161,21 @@ const Home = () => {
           <li dangerouslySetInnerHTML={{ __html: t('service5') }} />
         </Services>
       </Description>
+      <Wrapper>
+        <Block>
+          <h3>{t('homepage.service1.title')}</h3>
+          <h4>{t('homepage.service1.target')}</h4>
+        </Block>
+        <Block2>
+          <h3>{t('homepage.service2.title')}</h3>
+          <h4>{t('homepage.service2.target')}</h4>
+        </Block2>
+        <Block3>
+          <h3>{t('homepage.service3.title')}</h3>
+          <h4>{t('homepage.service3.target')}</h4>
+        </Block3>
+      </Wrapper>
+      <Inter>{t('tools')}</Inter>
       <Row padded>
         <Item textAlign="center">
           <img src={blackMagic} alt="blackmagic" id="blackmagic" width="80%" />
@@ -119,20 +186,7 @@ const Home = () => {
           <h3 dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }}/>
         </Item>
       </Row>
-      <Row>
-        <Item>
-          <h3>{t('homepage.service1.title')}</h3>
-          <h4>{t('homepage.service1.target')}</h4>
-        </Item>
-        <Item>
-          <h3>{t('homepage.service2.title')}</h3>
-          <h4>{t('homepage.service2.target')}</h4>
-        </Item>
-        <Item>
-          <h3>{t('homepage.service3.title')}</h3>
-          <h4>{t('homepage.service3.target')}</h4>
-        </Item>
-      </Row>
+      {/*<Inter2>{t('homepage.services')}</Inter2>*/}
     </>
   );
 };

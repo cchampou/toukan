@@ -8,7 +8,7 @@
   "service3": "Des <strong>illustrations</strong> selon vos désirs pour refléter au mieux le message désiré",
   "service4": "Un <strong>suivi détaillé</strong> de nos progrès durant la production",
   "service5": "Une <strong>étude approfondie</strong> sur la durée, la qualité et l'envergure de votre projet ",
-  "tools": "Services & matériel",
+  "tools": "Matériel",
   "powerredByMagic": "Nos <strong>productions</strong> sont principalement réalisées à l'aide d'une <strong>BlackMagic Cinema 4K</strong>",
   "powerredByAdobe": "Pour nos <strong>montages</strong> et nos <strong>retouches</strong>, nous utilisons la gamme <strong>Adobe Officiel</strong>",
   "portfolio": "Portfolio",
@@ -24,6 +24,7 @@
     "phone": "+33 7 86 04 99 00"
   },
   "homepage": {
+    "services": "Services",
     "service1": {
       "title": "Vidéo corporate",
       "target": "Entreprise - Professionnel - Club"
