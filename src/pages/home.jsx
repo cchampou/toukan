@@ -27,11 +27,10 @@ const Background = styled('div')`
 
 const ExtendLogo = styled(Logo)`
   margin: auto;
-  width: 400px;
   height: auto;
   display: block;
   top: 40vh;
-  max-width: 70vw;
+  max-width: 90vw;
   position: relative;
   opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
   transition: all 0.5s ease-in-out;
@@ -47,7 +46,6 @@ const Description = styled('div')`
   display: block;
   
   p {
-    font-family: "Libre Baskerville", open-sans;
     font-style: italic;
   }
 `;
@@ -62,6 +60,7 @@ const Services = styled('ul')`
 `;
 
 const Inter = styled('h2')`
+  margin: 0; 
   padding: 10rem 0;
   background-image: url("${tickets}");
   backgroud-color: black;
@@ -72,6 +71,9 @@ const Inter = styled('h2')`
   background-position: center;
   background-attachment: fixed;
   text-transform: uppercase;
+`;
+
+const Block = styled('')`
 `;
 
 const Home = () => {
@@ -95,6 +97,7 @@ const Home = () => {
     <>
       <Header color="white" />
       <Background><ExtendLogo scrolled={scrolled} /></Background>
+      <Inter>{t('tools')}</Inter>
       <Description>
         <h2>{t('heading1')}</h2><br /><br />
         <p dangerouslySetInnerHTML={{ __html: t('paragraph1') }} />
@@ -106,21 +109,28 @@ const Home = () => {
           <li dangerouslySetInnerHTML={{ __html: t('service5') }} />
         </Services>
       </Description>
-      <Inter>{t('tools')}</Inter>
       <Row padded>
         <Item textAlign="center">
           <img src={blackMagic} alt="blackmagic" id="blackmagic" width="80%" />
-        </Item>
-        <Item alignSelf="center">
           <h3 dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }}/>
         </Item>
-      </Row>
-      <Row padded>
         <Item alignSelf="center">
+          <img src={adobe} alt="Adobe" id="adobe" width="80%" />
           <h3 dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }}/>
         </Item>
-        <Item textAlign="center">
-          <img src={adobe} alt="Adobe" id="adobe" width="80%" />
+      </Row>
+      <Row>
+        <Item>
+          <h3>{t('homepage.service1.title')}</h3>
+          <h4>{t('homepage.service1.target')}</h4>
+        </Item>
+        <Item>
+          <h3>{t('homepage.service2.title')}</h3>
+          <h4>{t('homepage.service2.target')}</h4>
+        </Item>
+        <Item>
+          <h3>{t('homepage.service3.title')}</h3>
+          <h4>{t('homepage.service3.target')}</h4>
         </Item>
       </Row>
     </>
