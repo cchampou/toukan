@@ -22,6 +22,7 @@ const RightNav = styled('ul')`
   margin: 0 3rem;
   list-style: none;
   transition: all 0.5s ease-in-out;
+  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
   display: flex;
   right: 0;
   position: absolute;
@@ -46,6 +47,7 @@ const Title = styled('h1')`
   letter-spacing: 3px;
   overflow: hidden;
   white-space: nowrap;
+  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
   width: ${({ scrolled }) => (scrolled ? '20rem' : 0)};
   transition: all 0.5s ease-in-out;
 `;

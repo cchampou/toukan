@@ -55,7 +55,7 @@ const Description = styled('div')`
 `;
 
 const Services = styled('ul')`
-  list-style: number;
+  list-style: none;
   text-align: center;
   
   li {
