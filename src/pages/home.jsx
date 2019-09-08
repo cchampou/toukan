@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '../atoms/logo';
+import NewBackground from '../components/background';
 import background1 from '../../assets/images/background-building.webp';
 import background2 from '../../assets/images/background-homepage.webp';
 import blackMagic from '../../assets/images/blackmagic.jpg';
@@ -34,11 +35,13 @@ const ExtendLogo = styled(Logo)`
   height: auto;
   display: block;
   top: 40vh;
+  left: 50%;
   max-width: 90vw;
-  position: relative;
+  position: absolute;
+  z-index: 10;
   // opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
   transition: all 0.5s ease-in-out;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 `;
 
 const Description = styled('div')`
@@ -143,7 +146,8 @@ const Home = () => {
   return (
     <>
       <Header color="white" />
-      <Background><ExtendLogo scrolled={scrolled} /></Background>
+      <NewBackground><ExtendLogo scrolled={scrolled} /></NewBackground>
+      {/* <Background></Background> */}
       <Description>
         <h2>{t('heading1')}</h2>
         <br />

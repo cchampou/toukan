@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <Background>
       <Item><Link to="/legal">{t('legal')}</Link></Item>
-      <Item><Logo width="5rem" light /></Item>
+      <Item><Logo width="1rem" light /></Item>
       <Item><Link to="/contact">{t('contact.title')}</Link></Item>
     </Background>
   );
