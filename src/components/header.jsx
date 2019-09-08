@@ -10,6 +10,7 @@ import Logo from '../atoms/logo';
 const HeaderWrapper = styled('nav')`
   position: fixed;
   top: 0;
+  z-index: 100;
   height: 4rem;
   width: 100vw;
   color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};

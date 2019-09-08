@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next';
 import Logo from '../atoms/logo';
 import background1 from '../../assets/images/background-building.webp';
 import background2 from '../../assets/images/background-homepage.webp';
-import blackMagic from '../../assets/images/blackmagic.webp';
-import adobe from '../../assets/images/adobe.webp';
-import tickets from '../../assets/images/tickets.webp';
+import blackMagic from '../../assets/images/blackmagic.jpg';
+import adobe from '../../assets/images/adobe.jpg';
+import mavic from '../../assets/images/mavic.jpg';
+import ronin from '../../assets/images/ronin.jpg';
 import block1 from '../../assets/images/dzedzfz.jpg';
 import block2 from '../../assets/images/sdefdfvrdfv.jpg';
 import block3 from '../../assets/images/sxqzedc.jpg';
@@ -66,7 +67,6 @@ const Services = styled('ul')`
 const Inter = styled('h2')`
   margin: 0; 
   padding: 5rem 0;
-  // background-image: url("${tickets}");
   backgroud-color: black;
   color: ${({ theme }) => theme.colors.black};
   font-weight: lighter;
@@ -79,7 +79,14 @@ const Inter = styled('h2')`
 
 const Wrapper = styled('div')`
   position: relative;
-  height: 40rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: row;
+  
+  
+  &:hover div:not(:hover) h3, &:hover div:not(:hover) h4 {
+    opacity: 0;
+  }
 `;
 
 const Block = styled('div')`
@@ -92,26 +99,20 @@ const Block = styled('div')`
   background-position: center;
   color: white;
   text-align: center;
-  width: 33.33%;
-  float: left;
-  position: absolute;
-  transition: width 0.5s ease-in-out, z-index 0.5s step-end;
+  flex: 1;
+  transition: flex 0.5s ease-in-out;
   
   &:hover {
-    transition: width 0.5s ease-in-out, z-index 0.5s step-start;
-    width: 100%;
-    left: 0;
-    z-index: 11;
+    flex: 2;
   }
   
-  h3 {
+  h3, h4 {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     margin: 0;
+    transition: all 0.25s;
   }
   h4 {
     font-family: "marbre bold";
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
-    margin: 0;
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.1rem;
     text-transform: uppercase;
@@ -121,12 +122,10 @@ const Block = styled('div')`
 
 const Block2 = styled(Block)`
   background-image: url("${block2}");
-  left: 33.33%;
 `;
 
 const Block3 = styled(Block)`
   background-image: url("${block3}");
-  left: 66.66%;
 `;
 
 const Home = () => {
@@ -135,11 +134,6 @@ const Home = () => {
 
   const toggle = () => setScrolled(window.scrollY > 10);
 
-  if (process.env.BUILD_TARGET === 'client') {
-    const ScrollReveal = require('scrollreveal').default;
-    ScrollReveal().reveal('#blackmagic', { delay: 200, reset: true, distance: '5rem', duration: 1000, origin: 'left' });
-    ScrollReveal().reveal('#adobe', { delay: 200, reset: true, distance: '5rem', duration: 1000, origin: 'right' });
-  }
   useEffect(() => {
     window.addEventListener('scroll', toggle);
     return () => {
@@ -151,7 +145,9 @@ const Home = () => {
       <Header color="white" />
       <Background><ExtendLogo scrolled={scrolled} /></Background>
       <Description>
-        <h2>{t('heading1')}</h2><br /><br />
+        <h2>{t('heading1')}</h2>
+        <br />
+        <br />
         <p dangerouslySetInnerHTML={{ __html: t('paragraph1') }} />
         <Services>
           <li dangerouslySetInnerHTML={{ __html: t('service1') }} />
@@ -176,17 +172,24 @@ const Home = () => {
         </Block3>
       </Wrapper>
       <Inter>{t('tools')}</Inter>
-      <Row padded>
-        <Item textAlign="center">
-          <img src={blackMagic} alt="blackmagic" id="blackmagic" width="80%" />
-          <h3 dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }}/>
+      <Row padded wrap>
+        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
+          <img src={blackMagic} alt="blackmagic" width="80%" />
+          <p dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }} />
         </Item>
-        <Item alignSelf="center">
-          <img src={adobe} alt="Adobe" id="adobe" width="80%" />
-          <h3 dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }}/>
+        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
+          <img src={mavic} alt="Mavic" width="80%" />
+          <p dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }} />
+        </Item>
+        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
+          <img src={ronin} alt="Ronin" width="80%" />
+          <p dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }} />
+        </Item>
+        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
+          <img src={adobe} alt="Adobe" width="80%" />
+          <p dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }} />
         </Item>
       </Row>
-      {/*<Inter2>{t('homepage.services')}</Inter2>*/}
     </>
   );
 };
