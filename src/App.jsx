@@ -10,13 +10,24 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import Portfolio from './pages/portfolio';
 import Legal from './pages/legal';
+import Marbre from '../assets/marbre.otf';
+import MarbreBold from '../assets/marbre_bold.otf';
 
 const globalStyles = css`
+  @font-face {
+    src: url("${Marbre}");
+    font-family: "Marbre";
+  }
+  @font-face {
+    src: url("${MarbreBold}");
+    font-family: "Marbre Bold";
+  }
+
   body {
     margin: 0;
     font-family: "Lato";
     min-height: 100vh;
-    letter-spacing: 0.1rem;
+    // letter-spacing: 0.1rem;
   }
   
   #root {
