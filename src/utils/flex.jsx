@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Row = styled('div')`
   display: flex;
-  padding: ${({ padded }) => (padded ? '0 5rem' : null)}; 
+  padding: ${({ padded }) => (padded ? '0 5vw' : null)}; 
   flex-wrap: ${({ wrap }) => (wrap ? 'wrap' : null)}; 
 `;
 

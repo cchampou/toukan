@@ -13,7 +13,7 @@ const Contact = () => {
       <Row padded>
         <h1>{t('contact.project')}</h1>
       </Row>
-      <Row padded>
+      <Row padded wrap>
         <Item>
           <h2>{t('contact.information')}</h2>
           {/* <p> */}
@@ -28,10 +28,10 @@ const Contact = () => {
         <Item>
           <Column>
             <h2>{t('contact.demand')}</h2>
-            <Input placeholder="Votre prénom..." />
+            <Input placeholder="Votre prénom..." autofocus />
             <Input placeholder="Votre adresse e-mail..." />
             <Input placeholder="Votre numéro de téléphone..." type="tel" />
-            <TextArea placeholder="Votre projet en quelques lignes..."/>
+            <TextArea placeholder="Votre projet en quelques lignes..." rows={5} />
             <Button type="submit">Envoyer</Button>
           </Column>
         </Item>
