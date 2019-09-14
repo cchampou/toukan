@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Button = styled('button')`
   border: none;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.black};
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
   padding: 0.5rem 1.5rem;

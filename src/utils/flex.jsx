@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Row = styled('div')`
+export const Row = styled('div', { shouldForwardProp: (prop) => prop !== 'wrap' && prop !== 'padded' })`
   display: flex;
   padding: ${({ padded }) => (padded ? '0 5vw' : null)}; 
   flex-wrap: ${({ wrap }) => (wrap ? 'wrap' : null)}; 

@@ -12,6 +12,11 @@
         "pink": "#AA6A7F",
         "red": "#D76D77",
         "yellow": "#F6BE76"
+      },
+      "alerts": {
+        "warning": "yellow",
+        "success": "deepPurple",
+        "fail": "red"
       }
     },
     {
@@ -26,6 +31,11 @@
         "pink": "#AA6A7F",
         "red": "#D76D77",
         "yellow": "rgb(254, 187, 105)"
+      },
+      "alerts": {
+        "warning": "yellow",
+        "success": "deepPurple",
+        "fail": "red"
       }
     }
   ]
