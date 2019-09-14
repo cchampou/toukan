@@ -9,7 +9,7 @@ const Contact = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Header noWrap color="purple" />
+      <Header noWrap bgColor="purple" color="white" />
       <Row padded>
         <h1>{t('contact.project')}</h1>
       </Row>

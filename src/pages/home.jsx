@@ -129,7 +129,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <Header color="white" />
+      <Header bgColor="white" color="black" />
       <NewBackground><ExtendLogo scrolled={scrolled} /></NewBackground>
       <Description>
         <h2>{t('heading1')}</h2>

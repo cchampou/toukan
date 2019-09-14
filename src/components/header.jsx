@@ -14,7 +14,7 @@ const HeaderWrapper = styled('nav')`
   height: 4rem;
   width: 100vw;
   color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
-  background-color: ${({ theme, scrolled, color }) => (scrolled ? rgba(theme.colors[color], 0.9) : 'transparent')};
+  background-color: ${({ theme, scrolled, bgColor }) => (scrolled ? rgba(theme.colors[bgColor], 0.9) : 'transparent')};
   box-shadow: 0 0 20px ${({ theme, scrolled }) => (scrolled && theme.darkMode ? theme.colors.black : 'transparent')};
   transition: background-color 0.5s ease-in-out;
 `;
@@ -23,7 +23,7 @@ const RightNav = styled('ul')`
   margin: 0;
   list-style: none;
   transition: all 0.5s ease-in-out;
-  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
+  color: ${({ theme, scrolled, color }) => (scrolled ? theme.colors[color] || theme.colors.black :  theme.colors.white)};
   display: flex;
   right: 0;
   position: absolute;
@@ -53,7 +53,7 @@ const Title = styled('h1')`
   letter-spacing: 3px;
   overflow: hidden;
   white-space: nowrap;
-  color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
+  color: ${({ theme, scrolled, color }) => (scrolled ? theme.colors[color] || theme.colors.black : theme.colors[color] || theme.colors.white)};
   width: ${({ scrolled }) => (scrolled ? '20rem' : 0)};
   transition: all 0.5s ease-in-out;
 `;
@@ -67,7 +67,9 @@ const ExtendLogo = styled(Logo)`
   transition: all 0.5s ease-in-out;
 `;
 
-const Header = ({ noWrap, color, textLogo }) => {
+const Header = ({
+  noWrap, color, bgColor, textLogo,
+}) => {
   const [scrolled, setScrolled] = useState(noWrap);
   const { t } = useTranslation();
 
@@ -82,9 +84,9 @@ const Header = ({ noWrap, color, textLogo }) => {
 
   return (
     <>
-      <HeaderWrapper scrolled={scrolled} color={color}>
-        {textLogo ? <Link to="/"><Title scrolled={scrolled}>{t('title')}</Title></Link> : <ExtendLogo scrolled={scrolled} />}
-        <RightNav scrolled={scrolled}>
+      <HeaderWrapper scrolled={scrolled} color={color} bgColor={bgColor}>
+        {textLogo ? <Link to="/"><Title scrolled={scrolled} color={color}>{t('title')}</Title></Link> : <ExtendLogo scrolled={scrolled} />}
+        <RightNav scrolled={scrolled} color={color}>
           {/* <Link to="/portfolio"><NavItems>{t('portfolio')}</NavItems></Link> */}
           {/* <Link to="/about"><NavItems>{t('about')}</NavItems></Link> */}
           <Link to="/contact"><NavItems>{t('contact.title')}</NavItems></Link>
@@ -97,12 +99,14 @@ const Header = ({ noWrap, color, textLogo }) => {
 Header.defaultProps = {
   noWrap: false,
   color: 'black',
+  bgColor: 'white',
   textLogo: true,
 };
 
 Header.propTypes = {
   noWrap: PropTypes.bool,
   color: PropTypes.string,
+  bgColor: PropTypes.string,
   textLogo: PropTypes.bool,
 };
 
