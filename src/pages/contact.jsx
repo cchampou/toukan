@@ -30,11 +30,6 @@ const Contact = () => {
       <Row padded wrap>
         <Item>
           <h2>{t('contact.information')}</h2>
-          {/* <p> */}
-          {/*  {t('contact.address1')} */}
-          {/*  <br /> */}
-          {/*  {t('contact.address2')} */}
-          {/* </p> */}
           <p>{t('contact.phone')}</p>
           <p>{t('contact.email')}</p>
           <p>{t('contact.website')}</p>
