@@ -4,16 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import Logo from '../atoms/logo';
 import NewBackground from '../components/background';
-import blackMagic from '../../assets/images/blackmagic.jpg';
-import adobe from '../../assets/images/adobe.jpg';
-import mavic from '../../assets/images/mavic.jpg';
-import ronin from '../../assets/images/ronin.jpg';
 import block1 from '../../assets/images/dzedzfz.jpg';
 import block2 from '../../assets/images/sdefdfvrdfv.jpg';
 import block3 from '../../assets/images/sxqzedc.jpg';
 
 import Header from '../components/header';
-import { Item, Row } from '../utils/flex';
+import Materiel from '../components/materiel';
 
 const ExtendLogo = styled(Logo)`
   margin: auto;
@@ -159,24 +155,7 @@ const Home = () => {
         </Block3>
       </Wrapper>
       <Inter>{t('tools')}</Inter>
-      <Row padded wrap>
-        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
-          <img src={blackMagic} alt="blackmagic" width="80%" />
-          <p dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }} />
-        </Item>
-        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
-          <img src={mavic} alt="Mavic" width="80%" />
-          <p dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }} />
-        </Item>
-        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
-          <img src={ronin} alt="Ronin" width="80%" />
-          <p dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }} />
-        </Item>
-        <Item textAlign="center" flex="1 0 10rem" alignSelf="center">
-          <img src={adobe} alt="Adobe" width="80%" />
-          <p dangerouslySetInnerHTML={{ __html: t('powerredByAdobe') }} />
-        </Item>
-      </Row>
+      <Materiel />
     </>
   );
 };
