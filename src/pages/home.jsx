@@ -24,7 +24,6 @@ const ExtendLogo = styled(Logo)`
   max-width: 90vw;
   position: absolute;
   z-index: 10;
-  // opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
   transition: all 0.5s ease-in-out;
   transform: translate(-50%, -50%);
 `;
@@ -66,11 +65,9 @@ const Inter = styled('h2')`
 `;
 
 const Wrapper = styled('div')`
-  position: relative;
-  height: 20rem;
   display: flex;
   flex-direction: row;
-  
+  flex-wrap: wrap;
   
   &:hover div:not(:hover) h3, &:hover div:not(:hover) h4 {
     opacity: 0;
@@ -81,17 +78,19 @@ const Block = styled('div')`
   font-family: "marbre";
   font-size: 1.8rem;
   background-image: url("${block1}");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: ${({ theme }) => theme.colors.black};
   padding: 6rem 0;
   background-size: 100vw auto;
   background-position: center;
   color: white;
   text-align: center;
-  flex: 1;
+  flex: 1 0 20rem;
   transition: flex 0.5s ease-in-out;
   
   &:hover {
-    flex: 2;
+    flex: 2 0 20rem;
   }
   
   h3, h4 {
