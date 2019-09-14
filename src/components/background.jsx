@@ -1,44 +1,101 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/core';
 
 const Wrapper = styled('div')`
   height: 100vh;
+  width: 100vw;
   position: relative;
+  // position: fixed;
   overflow: hidden;
+  top: 0;
+  left: 0;
   margin-top: -5rem;
 `;
 
 const Base = styled('div')`
-  height: 100%;
-  width: 150%;
+  padding-top: 100vh;
+  width: 100vw;
   position: absolute;
-  box-shadow: 0 0 80px black;
-  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(90% 0%, 100% 0%, 100% 100%, 20% 100%);
+
+  & a {
+    position: absolute;
+    color: black;
+    left: 20%;
+    top: 10%;
+  }
 `;
 
 const Yellow = styled(Base)`
   background-color: ${({ theme }) => theme.colors.yellow};
-  left: -100%;
+  left: 0%;
+  clip-path: none;
+`;
+
+const revealRed = keyframes`
+  from {
+    left: 100;
+  }
+  
+  to {
+    left: -20%;
+  }
 `;
 
 const Red = styled(Base)`
+  left: 100%;
   background-color: ${({ theme }) => theme.colors.red};
-  left: -40%;
+  animation: ${revealRed} 1.6s ease 1s forwards;
+`;
+
+const revealPink = keyframes`
+  from {
+    left: 100%;
+  }
+  
+  to {
+    left: -10%;
+  }
 `;
 
 const Pink = styled(Base)`
+  left: 100%;
   background-color: ${({ theme }) => theme.colors.pink};
-  left: -20%;
+  animation: ${revealPink} 1.4s ease 1s forwards;
+`;
+
+const revealPurple = keyframes`
+  from {
+    left: 100%;
+  }
+  
+  to {
+    left: 0%;
+  }
 `;
 
 const Purple = styled(Base)`
-  left: 0%;
+  left: 100%;
   background-color: ${({ theme }) => theme.colors.purple};
+  animation: ${revealPurple} 1.2s ease 1s forwards;
 `;
 
+const revealDeepPurple = keyframes`
+  from {
+    left: 100%;
+  }
+  
+  to {
+    left: 10%;
+  }
+`;
+
+
 const DeepPurple = styled(Base)`
-  left: 20%;
+  left: 100%;
   background-color: ${({ theme }) => theme.colors.deepPurple};
+  animation: ${revealDeepPurple} 1s ease 1s forwards;
 `;
 
 export default ({ children }) => (

@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 import Logo from '../atoms/logo';
 import NewBackground from '../components/background';
-import background1 from '../../assets/images/background-building.webp';
-import background2 from '../../assets/images/background-homepage.webp';
 import blackMagic from '../../assets/images/blackmagic.jpg';
 import adobe from '../../assets/images/adobe.jpg';
 import mavic from '../../assets/images/mavic.jpg';
@@ -16,19 +14,6 @@ import block3 from '../../assets/images/sxqzedc.jpg';
 
 import Header from '../components/header';
 import { Item, Row } from '../utils/flex';
-
-const backgrounds = [background1, background2];
-
-const Background = styled('div')`
-  height: 100vh;
-  width: 100vw;
-  background-image: url("${({ theme }) => backgrounds[theme.index]}");
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  margin-top: -5rem;
-  z-index: -1;
-`;
 
 const ExtendLogo = styled(Logo)`
   margin: auto;
@@ -147,7 +132,6 @@ const Home = () => {
     <>
       <Header color="white" />
       <NewBackground><ExtendLogo scrolled={scrolled} /></NewBackground>
-      {/* <Background></Background> */}
       <Description>
         <h2>{t('heading1')}</h2>
         <br />
