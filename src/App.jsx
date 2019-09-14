@@ -28,9 +28,11 @@ const globalStyles = css`
     font-family: "Lato";
     min-height: 100vh;
     // letter-spacing: 0.1rem;
+    overflow-x:hidden;
   }
   
   #root {
+    overflow-x:hidden;
     min-height: calc(100vh - 20rem);
     position: relative;
     padding-top: 5rem;
