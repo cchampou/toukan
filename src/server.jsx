@@ -4,8 +4,10 @@ import express from 'express';
 import compression from 'compression';
 import i18nextMiddleware from 'i18next-express-middleware';
 import { renderToString } from 'react-dom/server';
+import bodyParser from 'body-parser';
 import i18n from './i18n';
 import App from './App';
+import { sendMail } from './server/mail.utils';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
@@ -13,8 +15,20 @@ const server = express();
 server
   .disable('x-powered-by')
   .use(compression())
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
   .use(i18nextMiddleware.handle(i18n))
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+  .post('/api/mail', async (req, res) => {
+    try {
+      await sendMail(req.body);
+      return res.status(200).send('OK');
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e);
+      return res.status(500).send(e);
+    }
+  })
   .get('/*', (req, res) => {
     const context = {};
     const markup = renderToString(
