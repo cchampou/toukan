@@ -21,6 +21,7 @@ services:
     image: toukan:latest
     restart: always
     labels:
+      - "traefik.frontend.rule=Host:www.toukancinemalyon.fr"
       - "traefik.frontend.rule=Host:toukancinemalyon.fr"
       - "traefik.backend.port=3000"
       - "traefik.enable=true"
