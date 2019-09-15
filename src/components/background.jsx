@@ -10,7 +10,7 @@ const Wrapper = styled('div')`
   overflow: hidden;
   top: 0;
   left: 0;
-  margin-top: -5rem;
+  margin-top: -4rem;
 `;
 
 const Base = styled('div')`
