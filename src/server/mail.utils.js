@@ -21,8 +21,8 @@ transporter.verify((error) => {
 export const sendMail = async (data) => {
   const message = {
     from: 'toukanmailer@champouillon.com',
-    to: 'clement@champouillon.com',
-    subject: 'New message from Toukan',
+    to: 'toukan.cinemalyon@gmail.com',
+    subject: 'Toukan Cinema contact',
     text: `De la part de : ${data.name}\nEmail : ${data.email}\nTéléphone : ${data.tel}\nMessage : ${data.message}`,
   };
   try {
