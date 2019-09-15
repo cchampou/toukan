@@ -87,7 +87,7 @@ const Header = ({
       <HeaderWrapper scrolled={scrolled} color={color} bgColor={bgColor}>
         {textLogo ? <Link to="/"><Title scrolled={scrolled} color={color}>{t('title')}</Title></Link> : <ExtendLogo scrolled={scrolled} />}
         <RightNav scrolled={scrolled} color={color}>
-          {/* <Link to="/portfolio"><NavItems>{t('portfolio')}</NavItems></Link> */}
+           <Link to="/portfolio"><NavItems>{t('portfolio')}</NavItems></Link>
           {/* <Link to="/about"><NavItems>{t('about')}</NavItems></Link> */}
           <Link to="/contact"><NavItems>{t('contact.title')}</NavItems></Link>
         </RightNav>
