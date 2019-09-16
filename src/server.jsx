@@ -9,6 +9,8 @@ import i18n from './i18n';
 import App from './App';
 import { sendMail } from './server/mail.utils';
 
+import faStyles from '@fortawesome/fontawesome-svg-core/styles.css';
+
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
@@ -50,6 +52,7 @@ server
         <meta name="theme-color" content="#000">
         <meta name="Description" content="Toukan Cinema, production audiovisuelle sur Lyon.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>${faStyles}</style>
         <link href="https://fonts.googleapis.com/css?family=Lato|Libre+Baskerville&display=swap" rel="stylesheet">
         ${
   assets.client.css
