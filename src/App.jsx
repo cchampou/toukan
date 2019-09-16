@@ -12,6 +12,7 @@ import Portfolio from './pages/portfolio';
 import Legal from './pages/legal';
 import Marbre from '../assets/marbre.otf';
 import MarbreBold from '../assets/marbre_bold.otf';
+import PortfolioDetails from './pages/portfolioDetails';
 
 const globalStyles = css`
   @font-face {
@@ -25,7 +26,7 @@ const globalStyles = css`
 
   body {
     margin: 0;
-    font-family: "Lato";
+    font-family: "Lato";  
     min-height: 100vh;
     // letter-spacing: 0.1rem;
     overflow-x:hidden;
@@ -33,10 +34,10 @@ const globalStyles = css`
   
   #root {
     overflow-x:hidden;
-    min-height: calc(100vh - 20rem);
+    min-height: calc(100vh - 10rem);
     position: relative;
-    padding-top: 5rem;
-    padding-bottom: 15rem;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
   }
   
   a {
@@ -71,6 +72,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/portfolio" component={Portfolio} />
+        <Route exact path="/portfolio/:id" component={PortfolioDetails} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/legal" component={Legal} />
       </Switch>

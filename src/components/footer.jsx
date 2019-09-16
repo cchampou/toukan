@@ -13,6 +13,7 @@ const Background = styled(Row)`
   width: 100vw;
   text-align: center;
   padding: 2rem 0;
+  height: 2rem;
 `;
 
 const Footer = () => {
