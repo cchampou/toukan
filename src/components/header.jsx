@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { rgba } from 'polished';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import Logo from '../atoms/logo';
 
@@ -42,6 +42,10 @@ const MobileNav = styled('ul')`
   display: flex;
   right: 0;
   position: absolute;
+  
+  @media (min-width: 1024px) {
+    display: none;
+  }
 `;
 
 const NavItems = styled('li')`
@@ -56,6 +60,7 @@ const NavItems = styled('li')`
   position: relative;
   width: 10vw;
   text-align: center;
+  cursor: pointer;
 `;
 
 const Title = styled('h1')`
@@ -82,6 +87,23 @@ const ExtendLogo = styled(Logo)`
   transition: all 0.5s ease-in-out;
 `;
 
+const MobileLinkWrapper = styled('div')`
+  position: fixed;
+  width: ${({ opened }) => (opened ? '100%' : '0')};
+  transition: width 0.25s;
+  overflow: hidden;
+  top: 4rem;
+  right: 0;
+  background-color: ${({ theme, bgColor }) => rgba(theme.colors[bgColor], 0.9)};
+  color: ${({ color }) => color};
+`;
+
+const MobileLink = styled('div')`
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+`;
+
 const Header = ({
   noWrap, color, bgColor, textLogo,
 }) => {
@@ -98,6 +120,9 @@ const Header = ({
     };
   }, []);
 
+  if (opened && !scrolled) {
+    setScrolled(true);
+  }
   return (
     <>
       <HeaderWrapper scrolled={scrolled} color={color} bgColor={bgColor}>
@@ -107,7 +132,11 @@ const Header = ({
           <Link to="/contact"><NavItems>{t('contact.title')}</NavItems></Link>
         </RightNav>
         <MobileNav scrolled={scrolled} color={color}>
-          <NavItems onClick={() => setOpened(!opened)}><FontAwesomeIcon icon={faBars} size="2x" /></NavItems>
+          <NavItems onClick={() => setOpened(!opened)}><FontAwesomeIcon icon={opened ? faTimes : faBars} size="2x" /></NavItems>
+          <MobileLinkWrapper bgColor={bgColor} color={color} opened={opened}>
+            <Link to="/portfolio"><MobileLink>{t('portfolio.title')}</MobileLink></Link>
+            <Link to="/contact"><MobileLink>{t('contact.title')}</MobileLink></Link>
+          </MobileLinkWrapper>
         </MobileNav>
       </HeaderWrapper>
     </>
