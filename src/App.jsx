@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import Home from './pages/home';
 import { themes } from '../config';
 import Footer from './components/footer';
@@ -13,6 +14,7 @@ import Legal from './pages/legal';
 import Marbre from '../assets/marbre.otf';
 import MarbreBold from '../assets/marbre_bold.otf';
 import PortfolioDetails from './pages/portfolioDetails';
+
 
 const globalStyles = css`
   @font-face {
