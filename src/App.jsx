@@ -16,6 +16,7 @@ import Portfolio from './pages/portfolio';
 import Legal from './pages/legal';
 import Marbre from '../assets/marbre.otf';
 import MarbreBold from '../assets/marbre_bold.otf';
+import Poppins from '../assets/Poppins-Regular.ttf';
 import PortfolioDetails from './pages/portfolioDetails';
 
 
@@ -23,6 +24,10 @@ const globalStyles = css`
   @font-face {
     src: url("${Marbre}");
     font-family: "Marbre";
+  }
+  @font-face {
+    src: url("${Poppins}");
+    font-family: "Poppins";
   }
   @font-face {
     src: url("${MarbreBold}");

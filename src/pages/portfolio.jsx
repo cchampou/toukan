@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import mavic from '../../assets/images/mavic.jpg';
 import Header from '../components/header';
-import { Row } from '../utils/flex';
+import { Column, Item, Row } from '../utils/flex';
 import Card from '../atoms/card';
 
 const Portfolio = () => {
@@ -26,16 +25,37 @@ const Portfolio = () => {
     fetchData();
   }, []);
 
-  console.log(entries);
   return (
     <>
-      <Header noWrap color="white" bgColor="red" />
+      <Header noWrap color="white" bgColor="pink" />
       <Row padded wrap justify="center">
-        {entries.map(({ title, thumbnail: { path } }) => (
-          <Card img={`https://cockpit.cchampou.me/${path}`}>
-            {title}
-          </Card>
-        ))}
+        <Item>
+          <Column>
+            {entries.filter((entry, i) => i % 3 === 0).map(({ title, thumbnail: { path } }) => (
+              <Card img={`https://cockpit.cchampou.me/${path}`}>
+                {title}
+              </Card>
+            ))}
+          </Column>
+        </Item>
+        <Item>
+          <Column>
+            {entries.filter((entry, i) => i % 3 === 1).map(({ title, thumbnail: { path } }) => (
+              <Card img={`https://cockpit.cchampou.me/${path}`}>
+                {title}
+              </Card>
+            ))}
+          </Column>
+        </Item>
+        <Item>
+          <Column>
+            {entries.filter((entry, i) => i % 3 === 2).map(({ title, thumbnail: { path } }) => (
+              <Card img={`https://cockpit.cchampou.me/${path}`}>
+                {title}
+              </Card>
+            ))}
+          </Column>
+        </Item>
       </Row>
     </>
   );

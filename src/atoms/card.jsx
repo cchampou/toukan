@@ -3,13 +3,17 @@ import React from 'react';
 import { rgba } from 'polished';
 import { Link } from 'react-router-dom';
 
-const StyledCard = styled('div')`
+const StyledCard = styled(Link)`
   display: flex;
   position: relative;
-  flex: 0 1 20rem;
-  margin: 2rem 1rem;
+  flex: 0 1 10rem;
+  margin: 0.5rem 0.5rem;
   flex-direction: column;
-  box-shadow: 0 0 20px ${({ theme }) => theme.colors.darkGrey};
+  cursor: pointer;
+  
+  &:hover > p {
+    opacity: 1;
+  }
 `;
 
 const Image = styled('img')`
@@ -17,37 +21,37 @@ const Image = styled('img')`
 `;
 
 const Text = styled('p')`
-  background-color: ${({ theme }) => theme.colors.black};
-  font-family: serif;
+  font-family: Lato;
+  font-weight: lighter;
+  font-size: 0.8rem;
   font-style: italic;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   margin: 0;
-  padding: 0.25rem 0.5rem;
+  padding: 0.3rem 0.6rem;
   z-index: 10;
 `;
 
-const Cta = styled('div')`
+const Cta = styled('p')`
   position: absolute;
-  height: 100%;
+  height: 1rem;
+  bottom: 0.65rem;
+  padding: 0.25rem 0;
   width: 100%;
   font-family: serif;
   font-style: italic;
   background-color: ${({ theme }) => rgba(theme.colors.black, 0.4)};
+  box-shadow: 0 0 5px ${({ theme }) => rgba(theme.colors.black, 0.4)};
   color: ${({ theme }) => theme.colors.white};
   vertical-align: middle;
   text-align: center;
-  cursor: pointer;
+  display: block;
   opacity: 0;
   transition: opacity 0.25s;
-  
-  &:hover {
-    opacity: 1;
-  }
 `;
 
 const Card = ({ img, children }) => (
-  <StyledCard>
-    <Link to="/portfolio/test"><Cta>See more</Cta></Link>
+  <StyledCard to="/portfolio/test">
+    <Cta>Agrandir</Cta>
     <Image src={img} alt="sample" />
     <Text>{children}</Text>
   </StyledCard>

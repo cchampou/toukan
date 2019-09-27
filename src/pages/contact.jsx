@@ -54,6 +54,9 @@ const Contact = () => {
           <p>{t('contact.phone')}</p>
           <p>{t('contact.email')}</p>
           <p>{t('contact.website')}</p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1153.872146032346!2d4.870434441689313!3d45.74505070477156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c1dfb764fa15%3A0x447233ce057d4c!2sPlace%20Ambroise%20Courtois!5e0!3m2!1sfr!2sfr!4v1569612916943!5m2!1sfr!2sfr"
+            width="600" height="450" frameBorder="0" style={{ border:0 }} allowFullScreen=""></iframe>
         </Item>
         <Item>
           <form onSubmit={submit}>

@@ -20,7 +20,7 @@ const Materiel = () => {
   const { t } = useTranslation();
 
   return (
-    <Row padded wrap>
+    <Row wrap>
       <Card textAlign="center" flex="1 0 15rem" alignSelf="align-start">
         <img src={blackMagic} alt="blackmagic" width="100%" />
         <p dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }} />

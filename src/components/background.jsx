@@ -17,7 +17,7 @@ const Base = styled('div')`
   padding-top: 100vh;
   width: 100vw;
   position: absolute;
-  clip-path: polygon(90% 0%, 100% 0%, 100% 100%, 20% 100%);
+  clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%);
 
   & a {
     position: absolute;
@@ -39,7 +39,7 @@ const revealRed = keyframes`
   }
   
   to {
-    left: -20%;
+    left: 20%;
   }
 `;
 
@@ -55,7 +55,7 @@ const revealPink = keyframes`
   }
   
   to {
-    left: -10%;
+    left: 28%;
   }
 `;
 
@@ -71,7 +71,7 @@ const revealPurple = keyframes`
   }
   
   to {
-    left: 0%;
+    left: 36%;
   }
 `;
 
@@ -87,7 +87,7 @@ const revealDeepPurple = keyframes`
   }
   
   to {
-    left: 10%;
+    left: 44%;
   }
 `;
 
