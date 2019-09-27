@@ -24,4 +24,5 @@ export const Spacer = styled('div')`
 
 export const SpacedItem = styled(Item)`
   margin: 0 0.5rem;
+  flex: 1 1 20rem;
 `;

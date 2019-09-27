@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/header';
 import {
-  Item, Row, SpacedItem, Spacer,
+  Row, SpacedItem, Spacer,
 } from '../utils/flex';
 import clipVideo from '../../assets/videos/clipVideo.mp4';
 
@@ -13,7 +13,7 @@ const Contact = () => {
     <>
       <Header noWrap bgColor="red" color="white" />
       <Spacer />
-      <Row padded>
+      <Row padded wrap>
         <SpacedItem>
           <h1>{t('clip.title')}</h1>
           <p>{t('clip.para1')}</p>

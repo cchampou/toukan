@@ -11,7 +11,7 @@ const Contact = () => {
     <>
       <Header noWrap bgColor="deepPurple" color="white" />
       <Spacer />
-      <Row padded>
+      <Row padded wrap>
         <SpacedItem>
           <h1>{t('corpo.title')}</h1>
           <p>{t('corpo.para1')}</p>
