@@ -10,6 +10,7 @@ import block3 from '../../assets/images/sxqzedc.jpg';
 
 import Header from '../components/header';
 import Materiel from '../components/materiel';
+import { Link } from 'react-router-dom';
 
 const ExtendLogo = styled(Logo)`
   margin: auto;
@@ -70,23 +71,24 @@ const Wrapper = styled('div')`
   }
 `;
 
-const Block = styled('div')`
+const Block = styled(Link)`
   font-family: "marbre";
   font-size: 1.8rem;
   background-image: url("${block1}");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: ${({ theme }) => theme.colors.black};
-  padding: 6rem 0;
+  padding: 12rem 0;
+  height: 12rem;
   background-size: 100vw auto;
   background-position: center;
   color: white;
   text-align: center;
-  flex: 1 0 20rem;
+  flex: 1 0 15rem;
   transition: flex 0.5s ease-in-out;
   
   &:hover {
-    flex: 2 0 20rem;
+    flex: 20 0 15rem;
   }
   
   h3, h4 {
@@ -141,15 +143,15 @@ const Home = () => {
         </Services>
       </Description>
       <Wrapper>
-        <Block>
+        <Block to="/corporate">
           <h3>{t('homepage.service1.title')}</h3>
           <h4>{t('homepage.service1.target')}</h4>
         </Block>
-        <Block2>
+        <Block2 to="/clip">
           <h3>{t('homepage.service2.title')}</h3>
           <h4>{t('homepage.service2.target')}</h4>
         </Block2>
-        <Block3>
+        <Block3 to="/individual">
           <h3>{t('homepage.service3.title')}</h3>
           <h4>{t('homepage.service3.target')}</h4>
         </Block3>

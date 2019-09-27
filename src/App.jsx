@@ -9,6 +9,9 @@ import { themes } from '../config';
 import Footer from './components/footer';
 import About from './pages/about';
 import Contact from './pages/contact';
+import Corpo from './pages/corpo';
+import Clip from './pages/clip';
+import Individual from './pages/individual';
 import Portfolio from './pages/portfolio';
 import Legal from './pages/legal';
 import Marbre from '../assets/marbre.otf';
@@ -75,6 +78,9 @@ const App = () => {
         <Route exact path="/about" component={About} />
         <Route exact path="/portfolio" component={Portfolio} />
         <Route exact path="/portfolio/:id" component={PortfolioDetails} />
+        <Route exact path="/corporate" component={Corpo} />
+        <Route exact path="/clip" component={Clip} />
+        <Route exact path="/individual" component={Individual} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/legal" component={Legal} />
       </Switch>

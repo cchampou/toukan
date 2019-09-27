@@ -6,7 +6,7 @@ import Card from '../atoms/card';
 
 const Portfolio = () => (
   <>
-    <Header noWrap color="white" bgColor="red" />
+    <Header noWrap color="white" bgColor="pink" />
     <Row padded wrap justify="center">
       <Card img={mavic}>
        Sample test

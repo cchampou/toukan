@@ -8,9 +8,7 @@ import ronin from '../../assets/images/ronin.jpg';
 import adobe from '../../assets/images/adobe.jpg';
 
 const Card = styled(Item)`
-  margin: 1rem;
-  border: solid 1px ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 0 0 10px ${({ theme }) => theme.colors.lightGrey};
+  margin: 0rem;
   
   & p {
     padding: 1rem;
