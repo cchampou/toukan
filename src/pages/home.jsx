@@ -47,6 +47,13 @@ const Description = styled('div')`
     font-size: 1.1rem;
     padding: 0rem 10rem;
   }
+  
+  @media(max-width: 1024px) {
+    p {
+      padding: 0;
+    }
+  }
+
 `;
 
 const Services = styled('ul')`
@@ -96,6 +103,12 @@ const Block = styled(Link)`
   text-align: center;
   flex: 1 0 15rem;
   transition: flex 0.5s ease-in-out;
+  
+  @media(max-width: 1024px) {
+    flex: 1 0 20rem;  
+    padding: 3rem 0;
+    height: 4rem;
+  }
   
   &:hover {
     flex: 20 0 15rem;

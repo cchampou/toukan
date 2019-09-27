@@ -46,7 +46,7 @@ const revealRed = keyframes`
 const Red = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.red};
-  animation: ${revealRed} 1.6s ease 1s forwards;
+  animation: ${revealRed} 1.6s ease 0.25s forwards;
 `;
 
 const revealPink = keyframes`
@@ -62,7 +62,7 @@ const revealPink = keyframes`
 const Pink = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.pink};
-  animation: ${revealPink} 1.4s ease 1s forwards;
+  animation: ${revealPink} 1.4s ease 0.25s forwards;
 `;
 
 const revealPurple = keyframes`
@@ -78,7 +78,7 @@ const revealPurple = keyframes`
 const Purple = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.purple};
-  animation: ${revealPurple} 1.2s ease 1s forwards;
+  animation: ${revealPurple} 1.2s ease 0.25s forwards;
 `;
 
 const revealDeepPurple = keyframes`
@@ -95,7 +95,7 @@ const revealDeepPurple = keyframes`
 const DeepPurple = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.deepPurple};
-  animation: ${revealDeepPurple} 1s ease 1s forwards;
+  animation: ${revealDeepPurple} 1s ease 0.25s forwards;
 `;
 
 export default ({ children }) => (
