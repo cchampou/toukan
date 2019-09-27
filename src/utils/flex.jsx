@@ -17,3 +17,12 @@ export const Item = styled('div')`
   align-self: ${({ alignSelf }) => alignSelf};
   text-align:  ${({ textAlign }) => textAlign};
 `;
+
+export const Spacer = styled('div')`
+  height: 5rem;
+`;
+
+export const SpacedItem = styled(Item)`
+  margin: 0 0.5rem;
+  flex: 1 1 20rem;
+`;

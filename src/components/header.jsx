@@ -30,7 +30,7 @@ const RightNav = styled('ul')`
   transition: all 0.5s ease-in-out;
   color: ${({ theme, scrolled, color }) => (scrolled ? theme.colors[color] || theme.colors.black : theme.colors.white)};
   display: flex;
-  right: 0;
+  right: 15vw;
   position: absolute;
 `;
 
@@ -58,7 +58,7 @@ const NavItems = styled('li')`
   letter-spacing: 3px;
   right: 2rem;
   position: relative;
-  width: 10vw;
+  width: 8vw;
   text-align: center;
   cursor: pointer;
 `;

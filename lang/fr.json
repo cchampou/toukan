@@ -2,7 +2,7 @@
   "title": "Toukan Cinema Lyon",
   "home": "Accueil",
   "heading1": "Les Services que nous proposons",
-  "paragraph1": "<strong>Toukan Cinema</strong> est une boite de production en développement qui vous propose ces services d'<strong>Audiovisuel</strong>. Nous sommes situés sur <strong>Lyon</strong> et sommes tous <strong>diplômés</strong> dans nos domaines respectifs. Dans nos services, nous vous proposons:",
+  "paragraph1": "<strong>Toukan Cinema</strong> est une boite de production en développement qui vous propose ces services d'<strong>Audiovisuel</strong> divisés en trois catégories bien distinctes: La vidéo Corporate, le Clip vidéo et la vidéo Privée.<br />Nous sommes situés sur <strong>Lyon</strong> et sommes <strong>diplômés</strong> dans nos domaines respectifs. Dans ces services, nous vous proposons :",
   "service1": "La <strong>réalisation vidéo et photo</strong> de vos projets professionnels ou privés",
   "service2": "Un <strong>montage irréprochable</strong> et une retouche personnalisée de vos vidéos ou photos",
   "service3": "Des <strong>illustrations</strong> selon vos désirs pour refléter au mieux le message désiré",
@@ -44,5 +44,18 @@
   "portfolio": {
     "title": "Portfolio",
     "back": "<- Retour à la navigation"
+  },
+  "corpo": {
+    "title": "Vidéo Corporate",
+    "target": "Entreprise - Commence - Professionnel",
+    "para1": "Dans le cadre d’une société, nos services seront concentrés tout d’abord sur la mise en avant du produit ou du service proposé. Nous travaillerons ensemble dans les premiers temps afin de se mettre d’accord sur le type de montage et de captation désiré, dans le but de promouvoir au mieux l’établissement, l’idée ou l'article en question.",
+    "para2": "Pour les commerces, nous proposons également des campagnes publicitaires, afin de présenter l’article ou l’entreprise pour pouvoir démarcher par la suite votre clientèle ou de potentiels futurs collaborateurs.",
+    "para3": "En terme de diffusion, nous proposons un format professionnel, parfaitement adapté à l'hébergeur, comme votre site web, différents réseaux sociaux, ou bien même la télévision.\nNous travaillons avec des formats Haute Définition (enregistrement et traitement de vidéo 4K) et un mixage son"
+  },
+  "clip": {
+    "title": "Video Clip",
+    "para1": "Pour tous les artistes souhaitants mettre en avant leurs talents, Nous proposons des clips vidéo minutieusement travaillés pour refléter au mieux votre univers et votre passion.\nDe l’image au montage, tout sera vu avec vous auparavant et travaillé avec perfection. vous aurez également un suivi en temps voulu sur le développement du tournage et du montage si nécessaire.",
+    "para2": "Les Clips seront travaillés dès les premières lignes d’écriture avec l’artiste en personne, puis sur la tournure et l’ambiance désirée, qui cible bien le style musicale choisi.",
+    "para3": "Je travaillerais avec vous, si nécéssaire, un scénario est des mises en scènes"
   }
 }

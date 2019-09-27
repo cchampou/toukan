@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 
+import { Link } from 'react-router-dom';
 import Logo from '../atoms/logo';
 import NewBackground from '../components/background';
-import block1 from '../../assets/images/dzedzfz.jpg';
+import block1 from '../../assets/images/corpo.png';
 import block2 from '../../assets/images/sdefdfvrdfv.jpg';
 import block3 from '../../assets/images/sxqzedc.jpg';
 
@@ -27,15 +28,32 @@ const ExtendLogo = styled(Logo)`
 const Description = styled('div')`
   text-align: center;
   background-color: white;
-  // background: linear-gradient(transparent, white 10%);
   color: ${({ theme }) => theme.colors.black};
   box-shadow: 0 10px 20px black;
   margin: 0;
   padding: 3rem 10vw;
   display: block;
+  letter-spacing: 1px;
+
+  h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  
   p {
     font-style: italic;
+    font-family: serif;
+    line-height: 1.4rem;
+    font-size: 1.1rem;
+    padding: 0rem 10rem;
   }
+  
+  @media(max-width: 1024px) {
+    p {
+      padding: 0;
+    }
+  }
+
 `;
 
 const Services = styled('ul')`
@@ -70,23 +88,30 @@ const Wrapper = styled('div')`
   }
 `;
 
-const Block = styled('div')`
+const Block = styled(Link)`
   font-family: "marbre";
   font-size: 1.8rem;
   background-image: url("${block1}");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: ${({ theme }) => theme.colors.black};
-  padding: 6rem 0;
+  padding: 12rem 0;
+  height: 12rem;
   background-size: 100vw auto;
   background-position: center;
   color: white;
   text-align: center;
-  flex: 1 0 20rem;
+  flex: 1 0 15rem;
   transition: flex 0.5s ease-in-out;
   
+  @media(max-width: 1024px) {
+    flex: 1 0 20rem;  
+    padding: 3rem 0;
+    height: 4rem;
+  }
+  
   &:hover {
-    flex: 2 0 20rem;
+    flex: 20 0 15rem;
   }
   
   h3, h4 {
@@ -130,7 +155,6 @@ const Home = () => {
       <Description>
         <h2>{t('heading1')}</h2>
         <br />
-        <br />
         <p dangerouslySetInnerHTML={{ __html: t('paragraph1') }} />
         <Services>
           <li dangerouslySetInnerHTML={{ __html: t('service1') }} />
@@ -141,15 +165,15 @@ const Home = () => {
         </Services>
       </Description>
       <Wrapper>
-        <Block>
+        <Block to="/corporate">
           <h3>{t('homepage.service1.title')}</h3>
           <h4>{t('homepage.service1.target')}</h4>
         </Block>
-        <Block2>
+        <Block2 to="/clip">
           <h3>{t('homepage.service2.title')}</h3>
           <h4>{t('homepage.service2.target')}</h4>
         </Block2>
-        <Block3>
+        <Block3 to="/individual">
           <h3>{t('homepage.service3.title')}</h3>
           <h4>{t('homepage.service3.target')}</h4>
         </Block3>

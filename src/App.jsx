@@ -9,10 +9,14 @@ import { themes } from '../config';
 import Footer from './components/footer';
 import About from './pages/about';
 import Contact from './pages/contact';
+import Corpo from './pages/corpo';
+import Clip from './pages/clip';
+import Individual from './pages/individual';
 import Portfolio from './pages/portfolio';
 import Legal from './pages/legal';
 import Marbre from '../assets/marbre.otf';
 import MarbreBold from '../assets/marbre_bold.otf';
+import Poppins from '../assets/Poppins-Regular.ttf';
 import PortfolioDetails from './pages/portfolioDetails';
 
 
@@ -20,6 +24,10 @@ const globalStyles = css`
   @font-face {
     src: url("${Marbre}");
     font-family: "Marbre";
+  }
+  @font-face {
+    src: url("${Poppins}");
+    font-family: "Poppins";
   }
   @font-face {
     src: url("${MarbreBold}");
@@ -75,6 +83,9 @@ const App = () => {
         <Route exact path="/about" component={About} />
         <Route exact path="/portfolio" component={Portfolio} />
         <Route exact path="/portfolio/:id" component={PortfolioDetails} />
+        <Route exact path="/corporate" component={Corpo} />
+        <Route exact path="/clip" component={Clip} />
+        <Route exact path="/individual" component={Individual} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/legal" component={Legal} />
       </Switch>

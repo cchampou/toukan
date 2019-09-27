@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Header from '../components/header';
 import { Row } from '../utils/flex';
-import disco from '../../assets/videos/disco.mp4';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -44,9 +43,9 @@ const PortfolioDetails = () => {
       <Wrapper>
         <VideoWrapper>
           <BackButton to="/portfolio">{t('portfolio.back')}</BackButton>
-          <video src={disco} controls>
-            <source src={disco} />
-          </video>
+          {/*<video src={disco} controls>*/}
+          {/*  <source src={disco} />*/}
+          {/*</video>*/}
         </VideoWrapper>
         <SidePanelWrapper>
           <h1>Test</h1>

@@ -8,9 +8,7 @@ import ronin from '../../assets/images/ronin.jpg';
 import adobe from '../../assets/images/adobe.jpg';
 
 const Card = styled(Item)`
-  margin: 1rem;
-  border: solid 1px ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 0 0 10px ${({ theme }) => theme.colors.lightGrey};
+  margin: 0rem;
   
   & p {
     padding: 1rem;
@@ -22,7 +20,7 @@ const Materiel = () => {
   const { t } = useTranslation();
 
   return (
-    <Row padded wrap>
+    <Row wrap>
       <Card textAlign="center" flex="1 0 15rem" alignSelf="align-start">
         <img src={blackMagic} alt="blackmagic" width="100%" />
         <p dangerouslySetInnerHTML={{ __html: t('powerredByMagic') }} />

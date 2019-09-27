@@ -17,7 +17,7 @@ const Base = styled('div')`
   padding-top: 100vh;
   width: 100vw;
   position: absolute;
-  clip-path: polygon(90% 0%, 100% 0%, 100% 100%, 20% 100%);
+  clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%);
 
   & a {
     position: absolute;
@@ -39,14 +39,14 @@ const revealRed = keyframes`
   }
   
   to {
-    left: -20%;
+    left: 20%;
   }
 `;
 
 const Red = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.red};
-  animation: ${revealRed} 1.6s ease 1s forwards;
+  animation: ${revealRed} 1.6s ease 0.25s forwards;
 `;
 
 const revealPink = keyframes`
@@ -55,14 +55,14 @@ const revealPink = keyframes`
   }
   
   to {
-    left: -10%;
+    left: 28%;
   }
 `;
 
 const Pink = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.pink};
-  animation: ${revealPink} 1.4s ease 1s forwards;
+  animation: ${revealPink} 1.4s ease 0.25s forwards;
 `;
 
 const revealPurple = keyframes`
@@ -71,14 +71,14 @@ const revealPurple = keyframes`
   }
   
   to {
-    left: 0%;
+    left: 36%;
   }
 `;
 
 const Purple = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.purple};
-  animation: ${revealPurple} 1.2s ease 1s forwards;
+  animation: ${revealPurple} 1.2s ease 0.25s forwards;
 `;
 
 const revealDeepPurple = keyframes`
@@ -87,7 +87,7 @@ const revealDeepPurple = keyframes`
   }
   
   to {
-    left: 10%;
+    left: 44%;
   }
 `;
 
@@ -95,7 +95,7 @@ const revealDeepPurple = keyframes`
 const DeepPurple = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.deepPurple};
-  animation: ${revealDeepPurple} 1s ease 1s forwards;
+  animation: ${revealDeepPurple} 1s ease 0.25s forwards;
 `;
 
 export default ({ children }) => (
