@@ -7,7 +7,7 @@ import { renderToString } from 'react-dom/server';
 import bodyParser from 'body-parser';
 import i18n from './i18n';
 import App from './App';
-import { sendMail } from './server/mail.utils';
+import sendMail from './server/mail.utils';
 
 import faStyles from '@fortawesome/fontawesome-svg-core/styles.css';
 
