@@ -47,6 +47,8 @@ steps:
         path: /var/run/docker.sock
     commands:
       - docker-compose -p toukan up -d production
+    depends_on:
+      - eslint check
     when:
       branch:
         - master
