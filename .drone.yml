@@ -34,8 +34,6 @@ steps:
     volumes:
       - name: docker
         path: /var/run/docker.sock
-    depends_on:
-      - eslint check
     when:
       branch:
         - master
@@ -47,8 +45,6 @@ steps:
         path: /var/run/docker.sock
     commands:
       - docker-compose -p toukan up -d production
-    depends_on:
-      - build production
     when:
       branch:
         - master
