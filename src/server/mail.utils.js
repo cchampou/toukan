@@ -18,7 +18,7 @@ transporter.verify((error) => {
   }
 });
 
-export const sendMail = async (data) => {
+const sendMail = async (data) => {
   const message = {
     from: 'toukanmailer@champouillon.com',
     to: 'toukan.cinemalyon@gmail.com',
@@ -32,3 +32,5 @@ export const sendMail = async (data) => {
     console.error(e);
   }
 };
+
+export default sendMail;
