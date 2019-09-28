@@ -20,7 +20,7 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <Background>
+    <Background padded>
       <Item><Link to="/legal">{t('legal')}</Link></Item>
       <Item><Logo width="1rem" light /></Item>
       <Item><Link to="/contact">{t('contact.title')}</Link></Item>
