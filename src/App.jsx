@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
-import { config } from '@fortawesome/fontawesome-svg-core';
 import Home from './pages/home';
 import { themes } from '../config';
 import Footer from './components/footer';
@@ -18,7 +17,7 @@ import Marbre from '../assets/marbre.otf';
 import MarbreBold from '../assets/marbre_bold.otf';
 import Poppins from '../assets/Poppins-Regular.ttf';
 import PortfolioDetails from './pages/portfolioDetails';
-
+import ScrollToTop from './utils/scrollToTop';
 
 const globalStyles = css`
   @font-face {
@@ -78,6 +77,7 @@ const App = () => {
     <ThemeProvider theme={darkModeHandler(themes[1], darkMode)}>
       {/* <DarkButton onClick={toggleDarkMode}><FontAwesomeIcon icon={faMoon} /></DarkButton> */}
       <Global styles={globalStyles} />
+      <ScrollToTop />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
