@@ -2,6 +2,11 @@ kind: pipeline
 name: default
 
 steps:
+  - name: eslint check
+    image: node:10
+    commands:
+      - yarn
+      - yarn lint
   - name: build preview
     image: docker/compose:1.24.1
     commands:
@@ -9,6 +14,8 @@ steps:
     volumes:
       - name: docker
         path: /var/run/docker.sock
+    depends_on:
+      - eslint check
 
   - name: deploy preview
     image: docker/compose:1.24.1
@@ -17,6 +24,8 @@ steps:
           path: /var/run/docker.sock
     commands:
       - docker-compose -p toukan up -d preview
+    depends_on:
+      - build preview
 
   - name: build production
     image: docker/compose:1.24.1
@@ -25,6 +34,8 @@ steps:
     volumes:
       - name: docker
         path: /var/run/docker.sock
+    depends_on:
+      - eslint check
     when:
       branch:
         - master
@@ -36,6 +47,8 @@ steps:
         path: /var/run/docker.sock
     commands:
       - docker-compose -p toukan up -d production
+    depends_on:
+      - build production
     when:
       branch:
         - master
