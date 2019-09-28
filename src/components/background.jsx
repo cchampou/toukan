@@ -6,7 +6,6 @@ const Wrapper = styled('div')`
   height: 100vh;
   width: 100vw;
   position: relative;
-  // position: fixed;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -18,6 +17,9 @@ const Base = styled('div')`
   width: 100vw;
   position: absolute;
   clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%);
+  @media(max-width: 1024px) {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 100%, 0% 100%);  
+  }
 
   & a {
     position: absolute;
@@ -31,6 +33,9 @@ const Yellow = styled(Base)`
   background-color: ${({ theme }) => theme.colors.yellow};
   left: 0%;
   clip-path: none;
+  @media(max-width: 1024px) {
+    clip-path: none;
+  }
 `;
 
 const revealRed = keyframes`
@@ -43,10 +48,23 @@ const revealRed = keyframes`
   }
 `;
 
+const revealRedMobile = keyframes`
+  from {
+    left: 100;
+  }
+  
+  to {
+    left: -10%;
+  }
+`;
+
 const Red = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.red};
   animation: ${revealRed} 1.6s ease 0.25s forwards;
+  @media(max-width: 1024px) {
+    animation: ${revealRedMobile} 1.6s ease 0.25s forwards;
+  }
 `;
 
 const revealPink = keyframes`
@@ -59,10 +77,23 @@ const revealPink = keyframes`
   }
 `;
 
+const revealPinkMobile = keyframes`
+  from {
+    left: 100%;
+  }
+  
+  to {
+    left: -2%;
+  }
+`;
+
 const Pink = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.pink};
   animation: ${revealPink} 1.4s ease 0.25s forwards;
+  @media(max-width: 1024px) {
+     animation: ${revealPinkMobile} 1.4s ease 0.25s forwards;
+  }
 `;
 
 const revealPurple = keyframes`
@@ -75,10 +106,23 @@ const revealPurple = keyframes`
   }
 `;
 
+const revealPurpleMobile = keyframes`
+  from {
+    left: 100%;
+  }
+  
+  to {
+    left: 6%;
+  }
+`;
+
 const Purple = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.purple};
   animation: ${revealPurple} 1.2s ease 0.25s forwards;
+  @media(max-width: 1024px) {
+    animation: ${revealPurpleMobile} 1.2s ease 0.25s forwards;
+  }
 `;
 
 const revealDeepPurple = keyframes`
@@ -91,11 +135,24 @@ const revealDeepPurple = keyframes`
   }
 `;
 
+const revealDeepPurpleMobile = keyframes`
+  from {
+    left: 100%;
+  }
+  
+  to {
+    left: 14%;
+  }
+`;
+
 
 const DeepPurple = styled(Base)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.deepPurple};
   animation: ${revealDeepPurple} 1s ease 0.25s forwards;
+  @media(max-width: 1024px) {
+    animation: ${revealDeepPurpleMobile} 1s ease 0.25s forwards;
+  }
 `;
 
 export default ({ children }) => (

@@ -12,7 +12,8 @@ const Background = styled(Row)`
   position: absolute;
   width: 100vw;
   text-align: center;
-  padding: 2rem 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   height: 2rem;
 `;
 

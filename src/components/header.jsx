@@ -128,13 +128,13 @@ const Header = ({
       <HeaderWrapper scrolled={scrolled} color={color} bgColor={bgColor}>
         {textLogo ? <Link to="/"><Title scrolled={scrolled} color={color}>{t('title')}</Title></Link> : <ExtendLogo scrolled={scrolled} />}
         <RightNav scrolled={scrolled} color={color}>
-          <Link to="/portfolio"><NavItems>{t('portfolio.title')}</NavItems></Link>
+          {/*<Link to="/portfolio"><NavItems>{t('portfolio.title')}</NavItems></Link>*/}
           <Link to="/contact"><NavItems>{t('contact.title')}</NavItems></Link>
         </RightNav>
         <MobileNav scrolled={scrolled} color={color}>
           <NavItems onClick={() => setOpened(!opened)}><FontAwesomeIcon icon={opened ? faTimes : faBars} size="2x" /></NavItems>
           <MobileLinkWrapper bgColor={bgColor} color={color} opened={opened}>
-            <Link to="/portfolio"><MobileLink>{t('portfolio.title')}</MobileLink></Link>
+            {/*<Link to="/portfolio"><MobileLink>{t('portfolio.title')}</MobileLink></Link>*/}
             <Link to="/contact"><MobileLink>{t('contact.title')}</MobileLink></Link>
           </MobileLinkWrapper>
         </MobileNav>

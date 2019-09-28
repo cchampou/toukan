@@ -20,6 +20,10 @@ export const Item = styled('div')`
 
 export const Spacer = styled('div')`
   height: 5rem;
+  
+  @media(max-width: 1024px) {
+    height: 1rem;  
+  }
 `;
 
 export const SpacedItem = styled(Item)`
