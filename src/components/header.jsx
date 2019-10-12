@@ -34,7 +34,7 @@ const RightNav = styled('div')`
   position: absolute;
 `;
 
-const MobileNav = styled('ul')`
+const MobileNav = styled('div')`
   margin: 0;
   list-style: none;
   transition: all 0.5s ease-in-out;
