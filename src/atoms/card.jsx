@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { rgba } from 'polished';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-const StyledCard = styled(Link)`
+const StyledCard = styled('div')`
   display: flex;
   position: relative;
   flex: 0 1 10rem;
