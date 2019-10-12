@@ -34,29 +34,32 @@ const Portfolio = () => {
       <Row padded wrap justify="center">
         <Item>
           <Column>
-            {entries.filter((entry, i) => i % 3 === 0).map(({ title, thumbnail: { path }, _id: id }) => (
-              <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
-                {title}
-              </Card>
-            ))}
+            {entries
+              .filter((entry, i) => i % 3 === 0).map(({ title, thumbnail: { path }, _id: id }) => (
+                <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
+                  {title}
+                </Card>
+              ))}
           </Column>
         </Item>
         <Item>
           <Column>
-            {entries.filter((entry, i) => i % 3 === 1).map(({ title, thumbnail: { path }, _id: id  }) => (
-              <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
-                {title}
-              </Card>
-            ))}
+            {entries
+              .filter((entry, i) => i % 3 === 1).map(({ title, thumbnail: { path }, _id: id }) => (
+                <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
+                  {title}
+                </Card>
+              ))}
           </Column>
         </Item>
         <Item>
           <Column>
-            {entries.filter((entry, i) => i % 3 === 2).map(({ title, thumbnail: { path }, _id: id }) => (
-              <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
-                {title}
-              </Card>
-            ))}
+            {entries
+              .filter((entry, i) => i % 3 === 2).map(({ title, thumbnail: { path }, _id: id }) => (
+                <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
+                  {title}
+                </Card>
+              ))}
           </Column>
         </Item>
       </Row>

@@ -52,14 +52,15 @@ const Image = styled('img')`
   transform: translate(-50%, -50%);
 `;
 
+// eslint-disable-next-line react/prop-types
 const PortfolioDetails = ({ entries, match: { params: { id } } }) => {
   const { t } = useTranslation();
-  if (!entries.length) {
+  if (!entries) {
     return null;
   }
-  const { title, thumbnail: { path } } =
-    entries.reduce((acc, entry) => (entry._id === id ? entry : acc), {});
-  console.log(title, id);
+  const { title, thumbnail: { path } } = entries
+  // eslint-disable-next-line react/prop-types,no-underscore-dangle
+    .reduce((acc, entry) => (entry._id === id ? entry : acc), {});
 
   return (
     <>
