@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 import Header from '../components/header';
 import { Column, Item, Row } from '../utils/flex';
 import Card from '../atoms/card';
+import PortfolioDetails from './portfolioDetails';
 
 const Portfolio = () => {
   const [entries, setEntries] = useState([]);
@@ -28,11 +30,12 @@ const Portfolio = () => {
   return (
     <>
       <Header noWrap color="white" bgColor="pink" />
+      <Route exact path="/portfolio/:id" render={(props) => <PortfolioDetails entries={entries} {...props} />} />
       <Row padded wrap justify="center">
         <Item>
           <Column>
-            {entries.filter((entry, i) => i % 3 === 0).map(({ title, thumbnail: { path } }) => (
-              <Card img={`https://cockpit.cchampou.me/${path}`}>
+            {entries.filter((entry, i) => i % 3 === 0).map(({ title, thumbnail: { path }, _id: id }) => (
+              <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
                 {title}
               </Card>
             ))}
@@ -40,8 +43,8 @@ const Portfolio = () => {
         </Item>
         <Item>
           <Column>
-            {entries.filter((entry, i) => i % 3 === 1).map(({ title, thumbnail: { path } }) => (
-              <Card img={`https://cockpit.cchampou.me/${path}`}>
+            {entries.filter((entry, i) => i % 3 === 1).map(({ title, thumbnail: { path }, _id: id  }) => (
+              <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
                 {title}
               </Card>
             ))}
@@ -49,8 +52,8 @@ const Portfolio = () => {
         </Item>
         <Item>
           <Column>
-            {entries.filter((entry, i) => i % 3 === 2).map(({ title, thumbnail: { path } }) => (
-              <Card img={`https://cockpit.cchampou.me/${path}`}>
+            {entries.filter((entry, i) => i % 3 === 2).map(({ title, thumbnail: { path }, _id: id }) => (
+              <Card img={`https://cockpit.cchampou.me/${path}`} id={id}>
                 {title}
               </Card>
             ))}
