@@ -21,7 +21,7 @@ const HeaderWrapper = styled('nav')`
   transition: background-color 0.5s ease-in-out;
 `;
 
-const RightNav = styled('ul')`
+const RightNav = styled('div')`
   @media (max-width: 1024px) {
     display: none;
   }
@@ -48,7 +48,7 @@ const MobileNav = styled('ul')`
   }
 `;
 
-const NavItems = styled('li')`
+const NavItems = styled('div')`
   margin: 0;
   padding-top: 1rem;
   line-height: 2rem;
