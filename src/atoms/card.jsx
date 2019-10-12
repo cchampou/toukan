@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { rgba } from 'polished';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const StyledCard = styled('div')`
+const StyledCard = styled(Link)`
   display: flex;
   position: relative;
   flex: 0 1 10rem;
@@ -49,8 +49,8 @@ const Cta = styled('p')`
   transition: opacity 0.25s;
 `;
 
-const Card = ({ img, children }) => (
-  <StyledCard to="/portfolio/test">
+const Card = ({ img, children, id }) => (
+  <StyledCard to={`/portfolio/${id}`}>
     <Cta>Agrandir</Cta>
     <Image src={img} alt="sample" />
     <Text>{children}</Text>
