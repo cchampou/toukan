@@ -55,7 +55,8 @@ const Image = styled('img')`
 // eslint-disable-next-line react/prop-types
 const PortfolioDetails = ({ entries, match: { params: { id } } }) => {
   const { t } = useTranslation();
-  if (!entries) {
+  // eslint-disable-next-line react/prop-types
+  if (!entries || !entries.length) {
     return null;
   }
   const { title, thumbnail: { path } } = entries
