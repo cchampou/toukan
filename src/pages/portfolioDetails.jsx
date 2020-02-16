@@ -43,7 +43,7 @@ const BackButton = styled(Link)`
   text-shadow: 0 0 5px black;
 `;
 
-const Image = styled('img')`
+const Content = styled('div')`
   max-width: 100%;
   max-height: 86vh;
   position: absolute;
@@ -59,7 +59,7 @@ const PortfolioDetails = ({ entries, match: { params: { id } } }) => {
   if (!entries || !entries.length) {
     return null;
   }
-  const { title, thumbnail: { path } } = entries
+  const { title, thumbnail, asset } = entries
   // eslint-disable-next-line react/prop-types,no-underscore-dangle
     .reduce((acc, entry) => (entry._id === id ? entry : acc), {});
 
@@ -69,7 +69,9 @@ const PortfolioDetails = ({ entries, match: { params: { id } } }) => {
       <Wrapper>
         <VideoWrapper>
           <BackButton to="/portfolio">{t('portfolio.back')}</BackButton>
-          <Image src={`https://cockpit.cchampou.me/${path}`} alt={title} />
+          <Content>
+          {asset ? <video src={`https://cockpit.cchampou.me/storage/uploads${asset.path}`} controls /> : <img src={`https://cockpit.cchampou.me/${thumbnail.path}`} alt={title} />}
+          </Content>
         </VideoWrapper>
         <SidePanelWrapper>
           <h1>{title}</h1>
