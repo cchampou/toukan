@@ -13,13 +13,12 @@ const Wrapper = styled('div')`
 `;
 
 const Base = styled('div')`
-  padding-top: 100vh;
+  padding-top: 200vh;
   width: 100vw;
+  top: -10vh;
   position: absolute;
-  clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%);
-  @media(max-width: 1024px) {
-    clip-path: polygon(90% 0%, 100% 0%, 100% 100%, 0% 100%);  
-  }
+  transform: rotateZ(30deg);
+  box-shadow: 0 0 50px rgba(0,0,0,0.7);
 
   & a {
     position: absolute;
@@ -31,127 +30,124 @@ const Base = styled('div')`
 
 const Yellow = styled(Base)`
   background-color: ${({ theme }) => theme.colors.yellow};
-  left: 0%;
-  clip-path: none;
-  @media(max-width: 1024px) {
-    clip-path: none;
-  }
+  left: 0;
+  transform: rotateZ(0deg);
 `;
 
 const revealRed = keyframes`
   from {
-    left: 100;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: 20%;
+    transform: translateX(-80%) rotate(30deg);
   }
 `;
 
 const revealRedMobile = keyframes`
   from {
-    left: 100;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: -10%;
+    transform: translateX(-110%) rotate(30deg);
   }
 `;
 
 const Red = styled(Base)`
-  left: 100%;
+  left: 115%;
   background-color: ${({ theme }) => theme.colors.red};
-  animation: ${revealRed} 1.6s ease 0.25s forwards;
+  animation: ${revealRed} 1.6s ease 1.25s forwards;
   @media(max-width: 1024px) {
-    animation: ${revealRedMobile} 1.6s ease 0.25s forwards;
+    animation: ${revealRedMobile} 1.6s ease 1.25s forwards;
   }
 `;
 
 const revealPink = keyframes`
   from {
-    left: 100%;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: 28%;
+    transform: translateX(-72%) rotate(30deg);
   }
 `;
 
 const revealPinkMobile = keyframes`
   from {
-    left: 100%;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: -2%;
+    transform: translateX(-102%) rotate(30deg);
   }
 `;
 
 const Pink = styled(Base)`
-  left: 100%;
+  left: 115%;
   background-color: ${({ theme }) => theme.colors.pink};
-  animation: ${revealPink} 1.4s ease 0.25s forwards;
+  animation: ${revealPink} 1.4s ease 1.25s forwards;
   @media(max-width: 1024px) {
-     animation: ${revealPinkMobile} 1.4s ease 0.25s forwards;
+     animation: ${revealPinkMobile} 1.4s ease 1.25s forwards;
   }
 `;
 
 const revealPurple = keyframes`
   from {
-    left: 100%;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: 36%;
+    transform: translateX(-64%) rotate(30deg);
   }
 `;
 
 const revealPurpleMobile = keyframes`
   from {
-    left: 100%;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: 6%;
+    transform: translateX(-94%) rotate(30deg);
   }
 `;
 
 const Purple = styled(Base)`
-  left: 100%;
+  left: 115%;
   background-color: ${({ theme }) => theme.colors.purple};
-  animation: ${revealPurple} 1.2s ease 0.25s forwards;
+  animation: ${revealPurple} 1.2s ease 1.25s forwards;
   @media(max-width: 1024px) {
-    animation: ${revealPurpleMobile} 1.2s ease 0.25s forwards;
+    animation: ${revealPurpleMobile} 1.2s ease 1.25s forwards;
   }
 `;
 
 const revealDeepPurple = keyframes`
   from {
-    left: 100%;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: 44%;
+    transform: translateX(-55%) rotate(30deg);
   }
 `;
 
 const revealDeepPurpleMobile = keyframes`
   from {
-    left: 100%;
+    transform: translateX(0%) rotate(30deg);
   }
   
   to {
-    left: 14%;
+    transform: translateX(-85%) rotate(30deg);
   }
 `;
 
 
 const DeepPurple = styled(Base)`
-  left: 100%;
+  left: 115%;
   background-color: ${({ theme }) => theme.colors.deepPurple};
-  animation: ${revealDeepPurple} 1s ease 0.25s forwards;
+  animation: ${revealDeepPurple} 1s ease 1.25s forwards;
   @media(max-width: 1024px) {
-    animation: ${revealDeepPurpleMobile} 1s ease 0.25s forwards;
+    animation: ${revealDeepPurpleMobile} 1s ease 1.25s forwards;
   }
 `;
 
