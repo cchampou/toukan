@@ -20,7 +20,7 @@
     "compression": "^1.7.4",
     "emotion-theming": "^10.0.14",
     "express": "^4.17.1",
-    "i18next": "^17.0.12",
+    "i18next": "^19.3.2",
     "i18next-express-middleware": "^1.8.1",
     "nodemailer": "^6.3.0",
     "polished": "^3.4.1",
@@ -28,7 +28,7 @@
     "razzle": "^3.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-i18next": "^10.12.2",
+    "react-i18next": "^11.3.3",
     "react-router-dom": "^5.0.1",
     "scrollreveal": "^4.0.5"
   },
@@ -38,6 +38,6 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0"
+    "eslint-plugin-react-hooks": "^2.4.0"
   }
 }
