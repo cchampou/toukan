@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/header';
 import { Item, Row } from '../utils/flex';
+import { withAnalyticsPageView } from '../utils/analytics';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -21,4 +22,4 @@ const Contact = () => {
     </>
   );
 };
-export default Contact;
+export default withAnalyticsPageView(Contact);

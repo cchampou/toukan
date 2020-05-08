@@ -3,6 +3,7 @@ import Header from '../components/header';
 import { Column, Item, Row } from '../utils/flex';
 import Card from '../atoms/card';
 import client, { toPhotoItem, toVideoItem } from '../utils/contentful';
+import { withAnalyticsPageView } from '../utils/analytics';
 
 const VideoItem = ({ videos, row }) => videos
   .filter((entry, i) => i % 3 === row).map(({ thumbnail, id }) => (
@@ -68,4 +69,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default withAnalyticsPageView(Portfolio);

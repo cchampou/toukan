@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Header from '../components/header';
 import client, { getContentType, toPhotoItem, toVideoItem } from '../utils/contentful';
 import play from '../../assets/images/play.png';
+import { withAnalyticsPageView } from '../utils/analytics';
 
 const Content = styled('div')`
   position: fixed;
@@ -102,4 +103,4 @@ const PortfolioDetails = ({ match: { params: { id } } }) => {
   );
 };
 
-export default PortfolioDetails;
+export default withAnalyticsPageView(PortfolioDetails);

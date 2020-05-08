@@ -5,6 +5,7 @@ import {
   Row, SpacedItem, Spacer,
 } from '../utils/flex';
 import clipVideo from '../../assets/videos/clipVideo.mp4';
+import { withAnalyticsPageView } from '../utils/analytics';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -29,4 +30,4 @@ const Contact = () => {
     </>
   );
 };
-export default Contact;
+export default withAnalyticsPageView(Contact);
