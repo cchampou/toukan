@@ -16,15 +16,15 @@ const PhotoItem = ({ items, row, rows }) => items
 const Portfolio = () => {
   const [items, setItems] = useState([]);
   const [contentTypes, setContentTypes] = useState([]);
+  const [cols, setCols] = useState(3);
 
   const fetchData = async (types = []) => {
     try {
       let tmp = [];
-      await Promise.all(types.map(async ({ selected, name, sys }) => {
+      await Promise.all(types.map(async ({ selected, sys }) => {
         if (!selected) {
           return null;
         }
-        console.log(name);
         const rawData = (await client.getEntries({ content_type: sys.id })).toPlainObject();
         tmp = [...tmp, ...rawData.items.reduce((acc, item) => [...acc, toSimpleItem(item)], [])];
         return null;
@@ -56,22 +56,29 @@ const Portfolio = () => {
 
   useEffect(() => {
     fetchInitialData().then(() => null);
+    if (typeof window !== 'undefined') {
+      setCols(Math.ceil(window.innerWidth / 400));
+      window.onresize = () => {
+        setCols(Math.ceil(window.innerWidth / 400));
+      };
+    }
+    return () => {
+      window.onresize = null;
+    };
   }, []);
 
   useEffect(() => {
     fetchData(contentTypes).then(() => null);
   }, [contentTypes]);
 
-  const COLS = 5;
 
   return (
     <>
       <Header noWrap color="white" bgColor="pink" />
       <Row>
         {contentTypes.map(({ name, sys, selected }) => (
-          <Item>
+          <Item key={sys.id}>
             <Badge
-              key={sys.id}
               onClick={() => toggleContentType(sys.id)}
               selected={selected}
             >
@@ -81,10 +88,10 @@ const Portfolio = () => {
         ))}
       </Row>
       <Row padded wrap justify="center">
-        {Array(COLS).fill('').map((_, index) => (
+        {Array(cols).fill('').map((_, index) => (
           <Item key={Math.random()}>
             <Column>
-              <PhotoItem items={items} row={index} rows={COLS} />
+              <PhotoItem items={items} row={index} rows={cols} />
             </Column>
           </Item>
         ))}
