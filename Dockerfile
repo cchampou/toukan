@@ -10,6 +10,7 @@ RUN yarn --network-timeout 3600000
 
 COPY . .
 
+RUN yarn lint
 RUN PUBLIC_PATH=$PUBLIC_PATH yarn build
 
 EXPOSE 3000
