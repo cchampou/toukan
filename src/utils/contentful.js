@@ -1,10 +1,17 @@
 import { createClient } from 'contentful';
 
-const client = createClient({
+const productionConfig = {
+  space: 'skguyjb5ywgk',
+  accessToken: 'kvUp9Ohh94uDjR1FFx0nxVy9EJ9yeu3sV5BoJXeVoZ0',
+};
+
+const previewConfig = {
   space: 'skguyjb5ywgk',
   accessToken: '0drId1AxcsYaoUqG2W5INF47w49fM0OBJUxL69XBo8s',
   host: 'preview.contentful.com',
-});
+};
+
+const client = createClient(process.env.NODE_ENV === 'production' ? productionConfig : previewConfig);
 
 export const toVideoItem = (item) => ({
   id: item.sys.id,

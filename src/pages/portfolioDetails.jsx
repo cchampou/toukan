@@ -84,23 +84,19 @@ const PortfolioDetails = ({ match: { params: { id } } }) => {
   }, []);
 
 
-  if (!data) {
-    return <Content />;
-  }
-
-  const { file, thumbnail, title } = data;
   return (
     <>
       <Header noWrap color="black" bgColor="white" autoHide />
       <Content>
         <PlayButton
-          onClick={() => canPlay ? player.current.play() : player.current.pause()}
+          onClick={() => (canPlay ? player.current.play() : player.current.pause())}
           show={canPlay}
         />
-        {file && thumbnail
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {data ? data.file && data.thumbnail
           // eslint-disable-next-line jsx-a11y/media-has-caption
-          ? <video src={file} autoPlay ref={setPlayer} />
-          : <img src={file} alt={title} />}
+          ? <video src={data.file} autoPlay ref={setPlayer} />
+          : <img src={data.file} alt={data.title} /> : null}
       </Content>
     </>
   );
