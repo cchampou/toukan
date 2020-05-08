@@ -49,7 +49,7 @@ steps:
     commands:
       - docker-compose -p toukan up -d production
     depends_on:
-      - eslint check
+      - build production
     when:
       branch:
         - master
