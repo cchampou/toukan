@@ -16,7 +16,7 @@ steps:
       - name: docker
         path: /var/run/docker.sock
     depends_on:
-      - eslint check
+      - clone
 
   - name: deploy preview
     image: docker/compose:1.24.1
