@@ -23,6 +23,13 @@ const Content = styled('div')`
   top: 0;
   left: 0;
   
+  @media (max-width: 1024px) {
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+  }
+  
   video, img {
     max-height: 100%;
     max-width: 100%;
