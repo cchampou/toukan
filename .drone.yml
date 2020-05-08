@@ -1,9 +1,10 @@
 kind: pipeline
+type: docker
 name: default
 
 steps:
   - name: eslint check
-    image: node:10
+    image: node:14-alpine
     commands:
       - yarn --network-timeout 100000
       - yarn lint
