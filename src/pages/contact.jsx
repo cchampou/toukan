@@ -6,6 +6,7 @@ import Input, { TextArea } from '../atoms/input';
 import Button from '../atoms/button';
 import { Column, Item, Row } from '../utils/flex';
 import Alert from '../atoms/alert';
+import { withAnalyticsPageView } from '../utils/analytics';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -75,4 +76,5 @@ const Contact = () => {
     </>
   );
 };
-export default Contact;
+
+export default withAnalyticsPageView(Contact);

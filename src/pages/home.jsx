@@ -11,6 +11,7 @@ import block3 from '../../assets/images/sxqzedc.jpg';
 
 import Header from '../components/header';
 import Materiel from '../components/materiel';
+import { withAnalyticsPageView } from '../utils/analytics';
 
 const ExtendLogo = styled(Logo)`
   margin: auto;
@@ -184,4 +185,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withAnalyticsPageView(Home);

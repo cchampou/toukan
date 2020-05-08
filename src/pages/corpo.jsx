@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Header from '../components/header';
 import { Row, SpacedItem, Spacer } from '../utils/flex';
 import corpoVideo from '../../assets/videos/corpoVideo.mp4';
+import { withAnalyticsPageView } from '../utils/analytics';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -27,4 +28,4 @@ const Contact = () => {
     </>
   );
 };
-export default Contact;
+export default withAnalyticsPageView(Contact);
