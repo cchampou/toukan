@@ -18,7 +18,8 @@ const HeaderWrapper = styled('nav')`
   color: ${({ theme, scrolled }) => (scrolled ? theme.colors.black : theme.colors.white)};
   background-color: ${({ theme, scrolled, bgColor }) => (scrolled ? rgba(theme.colors[bgColor], 0.9) : 'transparent')};
   box-shadow: 0 0 20px ${({ theme, scrolled }) => (scrolled && theme.darkMode ? theme.colors.black : 'transparent')};
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: ${({ hide }) => (hide ? 0 : 1)};
 `;
 
 const RightNav = styled('div')`
@@ -105,8 +106,9 @@ const MobileLink = styled('div')`
 `;
 
 const Header = ({
-  noWrap, color, bgColor, textLogo,
+  noWrap, color, bgColor, textLogo, autoHide,
 }) => {
+  const [hide, setHide] = useState(false);
   const [scrolled, setScrolled] = useState(noWrap);
   const [opened, setOpened] = useState(false);
   const { t } = useTranslation();
@@ -120,12 +122,25 @@ const Header = ({
     };
   }, []);
 
+  useEffect(() => {
+    const timeout = autoHide && setTimeout(() => setHide(true), 3000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [hide]);
+
   if (opened && !scrolled) {
     setScrolled(true);
   }
   return (
     <>
-      <HeaderWrapper scrolled={scrolled} color={color} bgColor={bgColor}>
+      <HeaderWrapper
+        scrolled={scrolled}
+        color={color}
+        bgColor={bgColor}
+        hide={hide}
+        onMouseEnter={() => setHide(false)}
+      >
         {textLogo ? <Link to="/"><Title scrolled={scrolled} color={color}>{t('title')}</Title></Link> : <ExtendLogo scrolled={scrolled} />}
         <RightNav scrolled={scrolled} color={color}>
           <Link to="/portfolio"><NavItems>{t('portfolio.title')}</NavItems></Link>
@@ -148,6 +163,7 @@ Header.defaultProps = {
   color: 'black',
   bgColor: 'white',
   textLogo: true,
+  autoHide: false,
 };
 
 Header.propTypes = {
@@ -155,6 +171,7 @@ Header.propTypes = {
   color: PropTypes.string,
   bgColor: PropTypes.string,
   textLogo: PropTypes.bool,
+  autoHide: PropTypes.bool,
 };
 
 export default Header;

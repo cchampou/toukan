@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import Header from '../components/header';
 import { Column, Item } from '../utils/flex';
+import client, { getContentType, toPhotoItem, toVideoItem } from '../utils/contentful';
 
 const Wrapper = styled(Column)`
   height: calc(100vh - 4rem);
@@ -13,70 +12,54 @@ const Wrapper = styled(Column)`
   z-index: 20;
 `;
 
-const SidePanelWrapper = styled('div')`
-  font-family: "Lato";
-  font-weight: lighter;
-  text-align: center;
-  height: 8vh;
-  width: 100vw;
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.darkGrey};
-  z-index: 30; 
-`;
-
-const VideoWrapper = styled(Item)`
-  width: 100%;
-  color: ${({ theme }) => theme.colors.white};
-  align-self: center;
-  text-align: center;
-  
-  & video {
-    width: 100%;
-  }
-`;
-
-const BackButton = styled(Link)`
-  position: fixed;
-  top: 5rem;
-  left: 2rem;
-  z-index: 40;
-  text-shadow: 0 0 5px black;
-`;
-
 const Content = styled('div')`
-  max-width: 100%;
-  width: 100%;
-  max-height: 86vh;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   top: 42vh;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  background-color: black;
+  
+  video {
+    max-height: 100%;
+    max-width: 100%;
+  }
 `;
 
 // eslint-disable-next-line react/prop-types
-const PortfolioDetails = ({ entries, match: { params: { id } } }) => {
-  const { t } = useTranslation();
-  // eslint-disable-next-line react/prop-types
-  if (!entries || !entries.length) {
+const PortfolioDetails = ({ match: { params: { id } } }) => {
+  const [data, setData] = useState(null);
+
+  const fetch = async () => {
+    try {
+      const rawContent = (await client.getEntry(id)).toPlainObject();
+      setData(getContentType(rawContent) === 'video' ? toVideoItem(rawContent) : toPhotoItem(rawContent));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    fetch().then(() => null);
+  }, []);
+
+  if (!data) {
     return null;
   }
-  const { thumbnail, file, title } = entries
-    // eslint-disable-next-line react/prop-types
-    .reduce((acc, entry) => (entry.id === id ? { ...entry } : acc), {});
+
+  const { file, thumbnail, title } = data;
 
   return (
     <>
-      <Header noWrap color="white" bgColor="red" />
+      <Header noWrap color="white" bgColor="black" autoHide />
       <Wrapper>
-        <VideoWrapper>
-          <BackButton to="/portfolio">{t('portfolio.back')}</BackButton>
-          <Content>
-          {file ? <video src={file} controls /> : <img src={thumbnail} alt={title} />}
-          </Content>
-        </VideoWrapper>
-        <SidePanelWrapper>
-          <h1>{title}</h1>
-        </SidePanelWrapper>
+        <Content>
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          {file && thumbnail ? <video src={file} autoPlay /> : <img src={file} alt={title} />}
+        </Content>
       </Wrapper>
     </>
   );

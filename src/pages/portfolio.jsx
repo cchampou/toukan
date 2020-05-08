@@ -5,7 +5,7 @@ import Header from '../components/header';
 import { Column, Item, Row } from '../utils/flex';
 import Card from '../atoms/card';
 import PortfolioDetails from './portfolioDetails';
-import client from '../utils/contentful';
+import client, { toPhotoItem, toVideoItem } from '../utils/contentful';
 
 const VideoItem = ({ videos, row }) => videos
   .filter((entry, i) => i % 3 === row).map(({ thumbnail, id }) => (
@@ -14,7 +14,7 @@ const VideoItem = ({ videos, row }) => videos
 
 const PhotoItem = ({ photos, row }) => photos
   .filter((entry, i) => i % 3 === row).map(({ title, file, id }) => (
-    <Card img={file} id={id}>
+    <Card img={file} id={id} key={id}>
       {title}
     </Card>
   ));
@@ -27,17 +27,8 @@ const Portfolio = () => {
     try {
       const rawVideos = (await client.getEntries({ content_type: 'video' })).toPlainObject();
       const rawPhotos = (await client.getEntries({ content_type: 'photo' })).toPlainObject();
-      const reducedVideo = rawVideos.items.reduce((acc, item) => [...acc, {
-        id: item.sys.id,
-        thumbnail: item.fields.thumbnail.fields.file.url,
-        file: item.fields.asset.fields.file.url,
-        title: item.fields.title,
-      }], []);
-      const reducedPhotos = rawPhotos.items.reduce((acc, item) => [...acc, {
-        id: item.sys.id,
-        title: item.fields.title,
-        file: item.fields.image.fields.file.url,
-      }], []);
+      const reducedVideo = rawVideos.items.reduce((acc, item) => [...acc, toVideoItem(item)], []);
+      const reducedPhotos = rawPhotos.items.reduce((acc, item) => [...acc, toPhotoItem(item)], []);
       setVideos(reducedVideo);
       setPhotos(reducedPhotos);
     } catch (e) {
@@ -46,13 +37,12 @@ const Portfolio = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData().then(() => null);
   }, []);
 
   return (
     <>
       <Header noWrap color="white" bgColor="pink" />
-      <Route exact path="/portfolio/:id" render={(props) => <PortfolioDetails entries={[...photos, ...videos]} {...props} />} />
       <Row padded>
         <h1>Videos</h1>
       </Row>
