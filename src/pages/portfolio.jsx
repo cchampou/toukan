@@ -2,65 +2,89 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/header';
 import { Column, Item, Row } from '../utils/flex';
 import Card from '../atoms/card';
-import client, { toPhotoItem, toVideoItem } from '../utils/contentful';
+import client, { getReadableContentType, toSimpleItem } from '../utils/contentful';
 import { withAnalyticsPageView } from '../utils/analytics';
+import Badge from '../atoms/badge';
 
-const VideoItem = ({ videos, row }) => videos
-  .filter((entry, i) => i % 3 === row).map(({ thumbnail, id }) => (
-    <Card img={thumbnail} id={id} key={id} />
-  ));
-
-const PhotoItem = ({ photos, row }) => photos
-  .filter((entry, i) => i % 3 === row).map(({ title, file, id }) => (
-    <Card img={file} id={id} key={id}>
+const PhotoItem = ({ items, row, rows }) => items
+  .filter((entry, i) => i % rows === row).map(({ title, file, id, thumbnail }) => (
+    <Card img={thumbnail || file} id={id} key={id} isVideo={Boolean(thumbnail)}>
       {title}
     </Card>
   ));
 
 const Portfolio = () => {
-  const [photos, setPhotos] = useState([]);
-  const [videos, setVideos] = useState([]);
+  const [items, setItems] = useState([]);
+  const [contentTypes, setContentTypes] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = async (types = []) => {
     try {
-      const rawVideos = (await client.getEntries({ content_type: 'video' })).toPlainObject();
-      const rawPhotos = (await client.getEntries({ content_type: 'photo' })).toPlainObject();
-      const reducedVideo = rawVideos.items.reduce((acc, item) => [...acc, toVideoItem(item)], []);
-      const reducedPhotos = rawPhotos.items.reduce((acc, item) => [...acc, toPhotoItem(item)], []);
-      setVideos(reducedVideo);
-      setPhotos(reducedPhotos);
+      let tmp = [];
+      await Promise.all(types.map(async ({ selected, name, sys }) => {
+        if (!selected) {
+          return null;
+        }
+        console.log(name);
+        const rawData = (await client.getEntries({ content_type: sys.id })).toPlainObject();
+        tmp = [...tmp, ...rawData.items.reduce((acc, item) => [...acc, toSimpleItem(item)], [])];
+        return null;
+      }));
+
+      setItems(tmp);
     } catch (e) {
       console.error(e);
     }
   };
 
+  const fetchInitialData = async () => {
+    try {
+      const rawContentTypes = (await client.getContentTypes()).toPlainObject()
+        .items.map((item) => ({ ...item, selected: true }));
+      setContentTypes(rawContentTypes);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const toggleContentType = (id) => {
+    setContentTypes(contentTypes
+      .map((item) => (item.sys.id === id ? {
+        ...item,
+        selected: !item.selected,
+      } : item)));
+  };
+
   useEffect(() => {
-    fetchData().then(() => null);
+    fetchInitialData().then(() => null);
   }, []);
+
+  useEffect(() => {
+    fetchData(contentTypes).then(() => null);
+  }, [contentTypes]);
+
+  const COLS = 5;
 
   return (
     <>
       <Header noWrap color="white" bgColor="pink" />
-      <Row padded>
-        <h1>Videos</h1>
-      </Row>
-      <Row padded>
-        {Array(3).fill('').map((_, index) => (
-          <Item key={Math.random()}>
-            <Column>
-              <VideoItem videos={videos} row={index} />
-            </Column>
+      <Row>
+        {contentTypes.map(({ name, sys, selected }) => (
+          <Item>
+            <Badge
+              key={sys.id}
+              onClick={() => toggleContentType(sys.id)}
+              selected={selected}
+            >
+              {name}
+            </Badge>
           </Item>
         ))}
       </Row>
-      <Row padded>
-        <h1>Photos</h1>
-      </Row>
       <Row padded wrap justify="center">
-        {Array(3).fill('').map((_, index) => (
+        {Array(COLS).fill('').map((_, index) => (
           <Item key={Math.random()}>
             <Column>
-              <PhotoItem photos={photos} row={index} />
+              <PhotoItem items={items} row={index} rows={COLS} />
             </Column>
           </Item>
         ))}
