@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { rgba } from 'polished';
 import { Link } from 'react-router-dom';
+import playButton from '../../assets/images/play.png';
 
 const StyledCard = styled(Link)`
   display: flex;
@@ -31,27 +32,25 @@ const Text = styled('p')`
   z-index: 10;
 `;
 
-const Cta = styled('p')`
+const Cta = styled('div')`
   position: absolute;
-  height: 1rem;
-  bottom: 0.65rem;
-  padding: 0.25rem 0;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
   font-family: serif;
   font-style: italic;
-  background-color: ${({ theme }) => rgba(theme.colors.black, 0.4)};
-  box-shadow: 0 0 5px ${({ theme }) => rgba(theme.colors.black, 0.4)};
-  color: ${({ theme }) => theme.colors.white};
   vertical-align: middle;
   text-align: center;
   display: block;
-  opacity: 0;
   transition: opacity 0.25s;
+  z-index: 5;
+  transform: translate(-50%, -50%);
 `;
 
-const Card = ({ img, children, id }) => (
+const Card = ({ img, children, id, isVideo }) => (
   <StyledCard to={`/portfolio/${id}`}>
-    <Cta>Agrandir</Cta>
+    <Cta>{isVideo ? <img src={playButton} alt="Lire" /> : <img src={playButton} alt="Lire" />}</Cta>
     <Image src={img} alt="sample" />
     <Text>{children}</Text>
   </StyledCard>

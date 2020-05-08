@@ -2,33 +2,27 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/header';
 import { Column, Item, Row } from '../utils/flex';
 import Card from '../atoms/card';
-import client, { toPhotoItem, toVideoItem } from '../utils/contentful';
+import client, { getReadableContentType, toSimpleItem } from '../utils/contentful';
 import { withAnalyticsPageView } from '../utils/analytics';
 
-const VideoItem = ({ videos, row }) => videos
-  .filter((entry, i) => i % 3 === row).map(({ thumbnail, id }) => (
-    <Card img={thumbnail} id={id} key={id} />
-  ));
-
-const PhotoItem = ({ photos, row }) => photos
-  .filter((entry, i) => i % 3 === row).map(({ title, file, id }) => (
-    <Card img={file} id={id} key={id}>
+const PhotoItem = ({ items, row }) => items
+  .filter((entry, i) => i % 3 === row).map(({ title, file, id, thumbnail }) => (
+    <Card img={thumbnail || file} id={id} key={id} isVideo={Boolean(thumbnail)}>
       {title}
     </Card>
   ));
 
 const Portfolio = () => {
-  const [photos, setPhotos] = useState([]);
-  const [videos, setVideos] = useState([]);
+  const [items, setItems] = useState([]);
+  const [contentTypes, setContentTypes] = useState([]);
 
   const fetchData = async () => {
     try {
-      const rawVideos = (await client.getEntries({ content_type: 'video' })).toPlainObject();
-      const rawPhotos = (await client.getEntries({ content_type: 'photo' })).toPlainObject();
-      const reducedVideo = rawVideos.items.reduce((acc, item) => [...acc, toVideoItem(item)], []);
-      const reducedPhotos = rawPhotos.items.reduce((acc, item) => [...acc, toPhotoItem(item)], []);
-      setVideos(reducedVideo);
-      setPhotos(reducedPhotos);
+      const rawData = (await client.getEntries()).toPlainObject();
+      const rawContentTypes = (await client.getContentTypes()).toPlainObject();
+      const data = rawData.items.reduce((acc, item) => [...acc, toSimpleItem(item)], []);
+      setContentTypes(rawContentTypes.items.map(getReadableContentType));
+      setItems(data);
     } catch (e) {
       console.error(e);
     }
@@ -41,26 +35,11 @@ const Portfolio = () => {
   return (
     <>
       <Header noWrap color="white" bgColor="pink" />
-      <Row padded>
-        <h1>Videos</h1>
-      </Row>
-      <Row padded>
-        {Array(3).fill('').map((_, index) => (
-          <Item key={Math.random()}>
-            <Column>
-              <VideoItem videos={videos} row={index} />
-            </Column>
-          </Item>
-        ))}
-      </Row>
-      <Row padded>
-        <h1>Photos</h1>
-      </Row>
       <Row padded wrap justify="center">
         {Array(3).fill('').map((_, index) => (
           <Item key={Math.random()}>
             <Column>
-              <PhotoItem photos={photos} row={index} />
+              <PhotoItem items={items} row={index} />
             </Column>
           </Item>
         ))}

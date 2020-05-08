@@ -28,4 +28,10 @@ export const toPhotoItem = (item) => ({
 
 export const getContentType = (item) => item.sys.contentType.sys.id;
 
+export const toSimpleItem = (item) => (getContentType(item) === 'video'
+  ? toVideoItem(item) : toPhotoItem(item));
+
+export const getReadableContentType = (item) => item.name;
+
+
 export default client;
