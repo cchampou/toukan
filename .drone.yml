@@ -6,7 +6,7 @@ steps:
   - name: eslint check
     image: node:14-alpine
     commands:
-      - yarn --network-timeout 100000
+      - yarn --network-timeout 3600000
       - yarn lint
   - name: build preview
     image: docker/compose:1.24.1

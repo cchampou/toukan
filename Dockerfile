@@ -6,7 +6,7 @@ ENV PUBLIC_PATH $PUBLIC_PATH
 COPY package.json .
 COPY yarn.lock .
 
-RUN yarn --network-timeout 100000
+RUN yarn --network-timeout 3600000
 
 COPY . .
 
