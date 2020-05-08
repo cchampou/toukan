@@ -38,8 +38,8 @@ steps:
     depends_on:
       - clone
     when:
-      branch:
-        - master
+      ref:
+        - refs/tags/*
 
   - name: deploy production
     image: docker/compose:1.24.1
@@ -51,8 +51,6 @@ steps:
     depends_on:
       - build production
     when:
-      branch:
-        - master
       ref:
         - refs/tags/*
 
