@@ -26,7 +26,10 @@ const Portfolio = () => {
           return null;
         }
         const rawData = (await client.getEntries({ content_type: sys.id })).toPlainObject();
-        tmp = [...tmp, ...rawData.items.reduce((acc, item) => [...acc, toSimpleItem(item)], [])];
+        tmp = [...tmp, ...rawData.items.reduce((acc, item) => {
+          const simpleItem = toSimpleItem(item);
+          return simpleItem ? [...acc, toSimpleItem(item)] : acc;
+        }, [])];
         return null;
       }));
 

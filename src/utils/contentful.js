@@ -28,8 +28,16 @@ export const toPhotoItem = (item) => ({
 
 export const getContentType = (item) => item.sys.contentType.sys.id;
 
-export const toSimpleItem = (item) => (getContentType(item) === 'video'
-  ? toVideoItem(item) : toPhotoItem(item));
+export const toSimpleItem = (item) => {
+  switch (getContentType(item)) {
+    case 'video':
+      return toVideoItem(item);
+    case 'photo':
+      return toPhotoItem(item);
+    default:
+      return null;
+  }
+};
 
 export const getReadableContentType = (item) => item.name;
 
