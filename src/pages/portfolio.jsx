@@ -101,10 +101,10 @@ const Portfolio = () => {
           </Badge>
         </Item>
       </Row>
-      <Row padded wrap justify="center">
+      <Row padded wrap justify="center" align="center">
         {Array(cols).fill('').map((_, index) => (
           <Item key={Math.random()}>
-            <Column>
+            <Column justify="center">
               <PhotoItem items={items} row={index} rows={cols} />
             </Column>
           </Item>

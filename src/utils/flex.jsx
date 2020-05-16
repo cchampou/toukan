@@ -4,12 +4,14 @@ export const Row = styled('div', { shouldForwardProp: (prop) => prop !== 'wrap' 
   display: flex;
   padding: ${({ padded }) => (padded ? '0 5vw' : null)}; 
   flex-wrap: ${({ wrap }) => (wrap ? 'wrap' : null)}; 
-  justify-content: ${({ justify }) => justify}; 
+  justify-content: ${({ justify }) => justify};
+  align-items: ${({ align }) => align};
 `;
 
 export const Column = styled('div')`
   display: flex;
   flex-direction: column;
+  justify-content: ${({ justify }) => justify}; 
 `;
 
 export const Item = styled('div')`
