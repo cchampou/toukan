@@ -94,6 +94,7 @@ const Portfolio = () => {
         <Item>
           <Badge
             onClick={() => clearCategories()}
+            selected={false}
           >
             <strong>x</strong>&nbsp;
             supprimer les filtres
