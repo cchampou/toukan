@@ -23,6 +23,7 @@ export const toVideoItem = (item) => ({
 export const toPhotoItem = (item) => ({
   id: item.sys.id,
   title: item.fields.title,
+  thumbnail: item.fields.thumbnail && item.fields.thumbnail.fields.file.url,
   file: item.fields.image.fields.file.url,
 });
 
@@ -30,8 +31,6 @@ export const getContentType = (item) => item.sys.contentType.sys.id;
 
 export const toSimpleItem = (item) => {
   switch (getContentType(item)) {
-    case 'video':
-      return toVideoItem(item);
     case 'photo':
       return toPhotoItem(item);
     default:

@@ -7,6 +7,8 @@ const Wrapper = styled('p')`
   padding: 0.5rem 1rem;
   border-style: solid;
   border-width: 1px;
+  border-radius: 2rem;
+  color: gray;
   border-color: ${({ selected }) => (selected ? '#F2F2F2' : 'transparent')};
   box-shadow: ${({ selected }) => (selected ? '2px 2px 5px silver' : 'none')};
   transform: ${({ selected }) => (selected ? 'translateY(0)' : 'translateY(3px)')};
