@@ -63,10 +63,10 @@ const Contact = () => {
           <form onSubmit={submit}>
             <Column>
               <h2>{t('contact.demand')}</h2>
-              <Input placeholder="Votre nom ou raison sociale..." name="name" type="text" value={contactData.name} onChange={inputHandler} />
-              <Input placeholder="Votre adresse e-mail..." name="email" type="email" value={contactData.email} onChange={inputHandler} />
+              <Input placeholder="Votre nom ou raison sociale..." name="name" type="text" value={contactData.name} onChange={inputHandler} required="true" />
+              <Input placeholder="Votre adresse e-mail..." name="email" type="email" value={contactData.email} onChange={inputHandler} required="true" />
               <Input placeholder="Votre numéro de téléphone..." name="tel" type="tel" value={contactData.tel} onChange={inputHandler} />
-              <TextArea placeholder="Votre projet en quelques lignes..." name="message" rows={5} value={contactData.message} onChange={inputHandler} />
+              <TextArea placeholder="Votre projet en quelques lignes..." name="message" rows={5} value={contactData.message} onChange={inputHandler} required="true" />
               <Button type="submit" color="darkGrey">Envoyer</Button>
               <Alert level={message.level}>{message.content}</Alert>
             </Column>
