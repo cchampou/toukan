@@ -3,11 +3,11 @@ type: docker
 name: default
 
 steps:
-#  - name: eslint check
-#    image: node:14-alpine
-#    commands:
-#      - yarn --network-timeout 3600000
-#      - yarn lint
+  - name: eslint check
+    image: node:14-alpine
+    commands:
+      - yarn --network-timeout 3600000
+      - yarn lint
   - name: build preview
     image: docker/compose:1.24.1
     commands:
@@ -15,18 +15,8 @@ steps:
     volumes:
       - name: docker
         path: /var/run/docker.sock
-#    depends_on:
-#      - clone
-
-  - name: deploy preview
-    image: docker/compose:1.24.1
-    volumes:
-        - name: docker
-          path: /var/run/docker.sock
-    commands:
-      - docker-compose -p toukan up -d preview
     depends_on:
-      - build preview
+      - clone
 
   - name: build production
     image: docker/compose:1.24.1
@@ -37,19 +27,6 @@ steps:
         path: /var/run/docker.sock
     depends_on:
       - clone
-    when:
-      ref:
-        - refs/tags/*
-
-  - name: deploy production
-    image: docker/compose:1.24.1
-    volumes:
-      - name: docker
-        path: /var/run/docker.sock
-    commands:
-      - docker-compose -p toukan up -d production
-    depends_on:
-      - build production
     when:
       ref:
         - refs/tags/*
