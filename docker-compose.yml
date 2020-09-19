@@ -8,11 +8,9 @@ services:
     image: toukan:latest
     restart: always
     labels:
-      - "traefik.frontend.rule=Host:toukan.cchampou.me"
-      - "traefik.frontend.auth.basic.users=cchampou:$$apr1$$RSwa8YGS$$IqFhDNJhBOiWQMWLq3phQ1,remi:$$apr1$$5103mRGO$$claAyjKFmuRZrOG1O6qZu0"
-      - "traefik.backend.port=3000"
-      - "traefik.enable=true"
-      - "traefik.docker.network=layko_layko_net"
+      - traefik.http.routers.toukan-preview.rule=Host(`toukan.cchampou.me`)
+      - traefik.http.routers.toukan-preview.tls=true
+      - traefik.http.routers.toukan-preview.tls.certresolver=main
   production:
     build:
       context: .
@@ -21,12 +19,11 @@ services:
     image: toukan:latest
     restart: always
     labels:
-      - "traefik.frontend.rule=Host:toukancinemalyon.fr,www.toukancinemalyon.fr"
-      - "traefik.backend.port=3000"
-      - "traefik.enable=true"
-      - "traefik.docker.network=layko_layko_net"
+      - traefik.http.routers.toukan.rule=Host(`toukancinemalyon.fr`)
+      - traefik.http.routers.toukan.tls=true
+      - traefik.http.routers.toukan.tls.certresolver=main
 
 networks:
   default:
     external:
-      name: layko_layko_net
+      name: allixo_default
