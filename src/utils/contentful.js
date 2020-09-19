@@ -40,5 +40,4 @@ export const toSimpleItem = (item) => {
 
 export const getReadableContentType = (item) => item.name;
 
-
 export default client;
