@@ -28,7 +28,7 @@
     "nodemailer": "^6.3.0",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
-    "razzle": "^3.0.0",
+    "razzle": "^3.4.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-i18next": "^11.3.3",
