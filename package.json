@@ -25,7 +25,7 @@
     "express": "^4.17.1",
     "i18next": "^19.3.2",
     "i18next-express-middleware": "^1.8.1",
-    "nodemailer": "^6.3.0",
+    "nodemailer": "^6.4.16",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
     "razzle": "^3.4.5",
